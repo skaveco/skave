@@ -1,0 +1,153 @@
+{
+  "header": {
+    "homeLabel": "Ir para o início",
+    "navigationLabel": "Navegação principal",
+    "services": "Serviços",
+    "cases": "Cases",
+    "about": "Sobre",
+    "news": "Novidades",
+    "contact": "Contato",
+    "changeLanguageLabel": "Mudar idioma para inglês",
+    "menuOpenLabel": "Abrir menu",
+    "menuCloseLabel": "Fechar menu"
+  },
+  "hero": {
+    "statement": "O braço estratégico e técnico de Branding e Tecnologia para negócios digitais e empresas em transformação digital.",
+    "cta": "Diagnóstico Grátis",
+    "location": "São José/SC",
+    "explore": "(Explore o site)",
+    "playVideo": "Assistir ao vídeo institucional",
+    "closeVideo": "Fechar vídeo",
+    "cursorVideo": "(VER VÍDEO)"
+  },
+  "projects": {
+    "title": "Projetos",
+    "viewAll": "Ver todos",
+    "cursorCase": "(VER CASE)"
+  },
+  "blog": {
+    "title": "Novidades",
+    "viewAll": "Ver portal",
+    "cursorPost": "(LER ARTIGO)"
+  },
+  "about": {
+    "eyebrow": "(SKAVE)",
+    "statement": "Atuamos ao lado de negócios digitais que precisam de capacidade estratégica, criativa e técnica para construir e evoluir marcas, produtos e soluções tecnológicas.",
+    "reelLabel": "Momentos da Skave com clientes, parceiros e comunidade",
+    "videoFallback": "Seu navegador não suporta a reprodução de vídeo.",
+    "approach": {
+      "title": "(ABORDAGEM)",
+      "description": "Cada desafio pede uma combinação diferente de estratégia, criatividade e tecnologia. Por isso, atuamos em Branding e Tech de forma independente ou integrada, construindo soluções a partir das necessidades reais do negócio."
+    },
+    "value": {
+      "title": "(PROPOSTA DE VALOR)",
+      "description": "Pensamos como parceiros estratégicos, construímos como especialistas e evoluímos como parte da equipe."
+    }
+  },
+  "results": {
+    "eyebrow": "(IMPACTO GERADO)",
+    "description": "Resultados que mostram o impacto do nosso trabalho nos negócios que atendemos.",
+    "cards": [
+      {
+        "imageAlt": "Equipe da Dr.Sim recebendo uma premiação do Santander X Awards",
+        "description": "Do 0 ao protótipo funcional. +1 aporte financeiro e premiação oficial pelo Santander Startup"
+      },
+      {
+        "imageAlt": "Representante da Leads2b em um painel do Asaas Connect",
+        "description": "Do 0 ao protótipo funcional. +1 aporte financeiro e premiação oficial pelo Santander Startup"
+      },
+      {
+        "imageAlt": "Equipe da Dr.Sim recebendo uma premiação do Santander X Awards",
+        "description": "Do 0 ao protótipo funcional. +1 aporte financeiro e premiação oficial pelo Santander Startup"
+      }
+    ]
+  },
+  "numbers": {
+    "label": "Números da Skave",
+    "items": [
+      {
+        "title": "Resultados",
+        "value": 300,
+        "description": "Empresas e Startups que evoluíram com as soluções desenvolvidas por nós"
+      },
+      {
+        "title": "Experiência",
+        "value": 7,
+        "description": "experiência de mercado em Branding e Tecnologia"
+      },
+      {
+        "title": "Premiações",
+        "value": 24,
+        "description": "Conhecimentos por curadorias internacionais"
+      }
+    ]
+  },
+  "customers": {
+    "eyebrow": "(NOSSOS CLIENTES)",
+    "logos": [
+      "Órbita",
+      "Facilita",
+      "Leads2b",
+      "Dr.Sim",
+      "Setfin",
+      "Sults",
+      "SmartPedidos",
+      "Normedic",
+      "ClickCannabis"
+    ]
+  },
+  "partners": {
+    "eyebrow": "(PARCERIAS)",
+    "description": "Construindo parcerias que evoluem nosso ecossistema de networking.",
+    "cards": [
+      {
+        "name": "Bridge Aceleradora",
+        "description": "Do 0 ao protótipo funcional. +1 aporte financeiro e premiação oficial pelo Santander Startup"
+      },
+      {
+        "name": "Bridge Aceleradora",
+        "description": "Do 0 ao protótipo funcional. +1 aporte financeiro e premiação oficial pelo Santander Startup"
+      }
+    ]
+  },
+  "capabilities": {
+    "eyebrow": "(FRENTES DE ATUAÇÃO E CAPACIDADES)",
+    "title": "Uma estrutura completa para construir soluções personalizadas. Da estratégia ao resultado",
+    "groups": [
+      {
+        "title": "Posicionamento",
+        "items": [
+          "Análise e pesquisa de marca",
+          "Identidade verbal",
+          "Identidade visual",
+          "Estratégia de marca",
+          "Naming",
+          "Consultoria de marca",
+          "Direção criativa"
+        ]
+      },
+      {
+        "title": "Experiência online",
+        "items": [
+          "Estrutura digital",
+          "Site institucional",
+          "Landing page",
+          "Design para redes sociais",
+          "Pesquisas e análises",
+          "Auditoria digital"
+        ]
+      },
+      {
+        "title": "Produto digital",
+        "items": [
+          "Benchmark de mercado e concorrência",
+          "Arquitetura e jornada do usuário",
+          "Análises e pesquisas",
+          "UI/UX Design",
+          "Protótipos",
+          "Design System"
+        ]
+      }
+    ]
+  }
+}
