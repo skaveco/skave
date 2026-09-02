@@ -20,6 +20,24 @@
     "closeVideo": "Fechar vídeo",
     "cursorVideo": "(VER VÍDEO)"
   },
+  "footer": {
+    "statement": "O braço estratégico e técnico de Branding e Tecnologia para negócios digitais e empresas em transformação digital.",
+    "contact": "Contato",
+    "explore": "EXPLORE",
+    "navigation": {
+      "projects": "Projetos",
+      "solutions": "Soluções",
+      "about": "Sobre",
+      "testimonials": "Depoimentos"
+    },
+    "quickContact": "CONTATO RÁPIDO",
+    "phone": "+55 11 99999-9999",
+    "email": "contato@skave.co",
+    "socialMedia": "REDES SOCIAIS",
+    "socialLinks": ["Instagram", "LinkedIn", "Behance"],
+    "copyright": "Skave©{year}. Todos os direitos reservados.",
+    "goTop": "Voltar ao topo"
+  },
   "projects": {
     "title": "Projetos",
     "viewAll": "Ver todos",
@@ -79,6 +97,41 @@
         "title": "Premiações",
         "value": 24,
         "description": "Conhecimentos por curadorias internacionais"
+      }
+    ]
+  },
+  "testimonials": {
+    "eyebrow": "(DEPOIMENTOS)",
+    "title": "O que nossos clientes dizem sobre",
+    "reviews": "+20 Avaliações no Google",
+    "cursorDrag": "ARRASTE",
+    "previousLabel": "Ver depoimento anterior",
+    "nextLabel": "Ver próximo depoimento",
+    "statusLabel": "Depoimento {current} de {total}",
+    "items": [
+      {
+        "quote": "Quero agradecer de coração à equipe Skave pelo trabalho incrível na criação do nosso material. Vocês conseguiram captar a essência do projeto com criatividade, profissionalismo e muito bom gosto. Foi uma parceria leve, fluida e super produtiva, exatamente como tem que ser! Estou muito feliz com o resultado e recomendo demais o trabalho de vocês!",
+        "authorName": "Rodolfo Matos",
+        "authorRole": "Diretor de criação, SPlan Brasil",
+        "authorImageAlt": ""
+      },
+      {
+        "quote": "A Skave transformou uma ideia ainda pouco estruturada em uma marca clara, consistente e pronta para crescer. O processo foi muito colaborativo e cada decisão veio acompanhada de estratégia e propósito.",
+        "authorName": "Marina Costa",
+        "authorRole": "Co-fundadora, Lumio",
+        "authorImageAlt": ""
+      },
+      {
+        "quote": "Encontramos na Skave um time que realmente entendeu o nosso negócio. A combinação entre visão estratégica, design e tecnologia tornou o projeto mais eficiente e elevou muito a qualidade do resultado final.",
+        "authorName": "Lucas Almeida",
+        "authorRole": "CEO, Norte Digital",
+        "authorImageAlt": ""
+      },
+      {
+        "quote": "Desde o primeiro encontro, sentimos segurança na condução do projeto. A equipe foi próxima, organizada e extremamente cuidadosa com os detalhes, entregando uma experiência que superou nossas expectativas.",
+        "authorName": "Camila Ribeiro",
+        "authorRole": "Head de Marketing, Vértice",
+        "authorImageAlt": ""
       }
     ]
   },

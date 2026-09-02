@@ -2,7 +2,6 @@ import type { Dictionary } from "@/app/[lang]/dictionaries";
 import { BlogCard } from "@/components/blog-card";
 import { Button } from "@/components/ui/button";
 import { TextAnimate } from "@/components/ui/text-animate";
-import { ThemeSectionObserver } from "@/components/ui/theme-section-observer";
 import type { BlogPostCard } from "@/data/blog";
 import { localePath, type Locale } from "@/lib/i18n";
 
@@ -24,9 +23,8 @@ export function BlogSection({ content, lang, posts }: BlogSectionProps) {
       aria-labelledby="blog-title"
       className="relative bg-background-01 px-[1.25rem] py-[5rem] text-text-01 tablet:px-[2.5rem] desktop:py-[4.5625rem]"
     >
-      <ThemeSectionObserver theme="light" />
       <div className="mx-auto flex w-full max-w-[86rem] flex-col gap-[3rem]">
-        <header className="flex items-end justify-between gap-[2rem]">
+        <header className="flex flex-col items-start gap-[1.25rem] tablet:flex-row tablet:items-end tablet:justify-between tablet:gap-[2rem]">
           <h2 id="blog-title" className="type-display-md">
             <TextAnimate animation="slideUp">{content.title}</TextAnimate>
           </h2>
@@ -40,14 +38,14 @@ export function BlogSection({ content, lang, posts }: BlogSectionProps) {
           </Button>
         </header>
 
-        <div className="grid items-start gap-[1.25rem] desktop:sticky desktop:top-[7rem] desktop:grid-cols-2">
+        <div className="grid items-start gap-[2rem] tablet:gap-[1.25rem] desktop:sticky desktop:top-[7rem] desktop:grid-cols-2">
           <BlogCard
             {...featuredPost}
             href={localePath(`/blog/${featuredPost.slug}`, lang)}
             imageSizes="(min-width: 68.75rem) 50vw, 100vw"
           />
 
-          <div className="grid items-start gap-[1.25rem] tablet:grid-cols-2 desktop:sticky desktop:top-[5rem]">
+          <div className="grid items-start gap-[2rem] tablet:gap-[1.25rem] tablet:grid-cols-2 desktop:sticky desktop:top-[5rem]">
             {otherPosts.slice(0, 2).map((post) => (
               <BlogCard
                 key={post.slug}

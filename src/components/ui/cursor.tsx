@@ -7,12 +7,13 @@ const CURSOR_SIZE = "0.8rem";
 const CURSOR_OFFSET = { x: 8, y: 8 } as const;
 const CURSOR_SPRING = { damping: 28, stiffness: 260, mass: 0.45 } as const;
 
-type CursorState = "default" | "pressed" | "video" | "case" | "blog";
+type CursorState = "default" | "pressed" | "video" | "case" | "blog" | "drag";
 
 type CursorLabels = {
   video: string;
   case: string;
   blog: string;
+  drag: string;
 };
 
 type CursorProps = {
@@ -22,7 +23,12 @@ type CursorProps = {
 
 // Figma: Website Skave 3.0, node 2851:417.
 export function Cursor({ labels, state = "default" }: CursorProps) {
-  if (state === "video" || state === "case" || state === "blog") {
+  if (
+    state === "video" ||
+    state === "case" ||
+    state === "blog" ||
+    state === "drag"
+  ) {
     return (
       <motion.span
         key={state}
@@ -95,7 +101,8 @@ export function SiteCursor({ labels }: SiteCursorProps) {
       const hoverState: Exclude<CursorState, "pressed"> =
         cursorState === "video" ||
         cursorState === "case" ||
-        cursorState === "blog"
+        cursorState === "blog" ||
+        cursorState === "drag"
           ? cursorState
           : "default";
       const offset = hoverState !== "default" ? { x: 0, y: 0 } : CURSOR_OFFSET;
@@ -158,7 +165,10 @@ export function SiteCursor({ labels }: SiteCursorProps) {
     >
       <div
         className={
-          state === "video" || state === "case" || state === "blog"
+          state === "video" ||
+          state === "case" ||
+          state === "blog" ||
+          state === "drag"
             ? "-translate-x-1/2 -translate-y-1/2"
             : ""
         }

@@ -1,6 +1,5 @@
 import type { Dictionary } from "@/app/[lang]/dictionaries";
 import { NumberTicker } from "@/components/ui/number-ticker";
-import { ThemeSectionObserver } from "@/components/ui/theme-section-observer";
 
 type NumbersSectionProps = {
   content: Dictionary["numbers"];
@@ -14,8 +13,6 @@ export function NumbersSection({ content }: NumbersSectionProps) {
       aria-label={content.label}
       className="relative bg-background-01 px-[1.25rem] py-[5rem] text-text-01 tablet:px-[2.5rem]"
     >
-      <ThemeSectionObserver />
-
       <div className="relative z-10 mx-auto flex w-full max-w-[86rem] flex-col">
         {content.items.map((item) => (
           <article

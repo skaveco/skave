@@ -36,6 +36,7 @@ export default async function LocaleLayout({
               video: dict.hero.cursorVideo,
               case: dict.projects.cursorCase,
               blog: dict.blog.cursorPost,
+              drag: dict.testimonials.cursorDrag,
             }}
           />
         </SmoothScroll>

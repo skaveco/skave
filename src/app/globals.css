@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 :root {
+  color-scheme: light;
   --primary: #afb684;
   --background-01: #ffffff;
   --background-02: #fafafa;
@@ -91,10 +92,18 @@ html.lenis body {
 
 .type-display-md {
   font-family: var(--font-sans);
-  font-size: 7rem;
-  line-height: 7rem;
-  letter-spacing: -0.300rem;
+  font-size: 4rem;
+  line-height: 4rem;
+  letter-spacing: -0.17rem;
   font-weight: 500;
+}
+
+@media (min-width: 48rem) {
+  .type-display-md {
+    font-size: 7rem;
+    line-height: 7rem;
+    letter-spacing: -0.3rem;
+  }
 }
 
 .type-heading-md {
@@ -139,10 +148,16 @@ html.lenis body {
 
 .type-body-sm {
   font-family: var(--font-sans);
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   line-height: 1.125rem;
   letter-spacing: 0;
   font-weight: 500;
+}
+
+@media (min-width: 48rem) {
+  .type-body-sm {
+    font-size: 0.75rem;
+  }
 }
 
 .type-label-md {

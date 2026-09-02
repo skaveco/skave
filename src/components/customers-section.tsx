@@ -1,7 +1,6 @@
 import Image from "next/image";
 
 import type { Dictionary } from "@/app/[lang]/dictionaries";
-import { ThemeSectionObserver } from "@/components/ui/theme-section-observer";
 
 type CustomersSectionProps = {
   content: Dictionary["customers"];
@@ -150,8 +149,6 @@ export function CustomersSection({ content }: CustomersSectionProps) {
       aria-labelledby="customers-title"
       className="relative bg-background-01 px-[1.25rem] py-[5rem] text-text-01 tablet:px-[2.5rem]"
     >
-      <ThemeSectionObserver />
-
       <div className="relative z-10 mx-auto flex w-full max-w-[86rem] flex-col gap-[0.625rem]">
         <h2 id="customers-title" className="type-label-md uppercase">
           {content.eyebrow}

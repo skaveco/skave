@@ -65,7 +65,7 @@ export function ResultsSection({ content }: ResultsSectionProps) {
       aria-labelledby="results-title"
       className="bg-background-01 px-[1.25rem] py-[5rem] text-text-01 tablet:px-[2.5rem]"
     >
-      <div className="mx-auto grid w-full max-w-[86rem] gap-[5rem] desktop:grid-cols-[14.375rem_minmax(0,1fr)]">
+      <div className="mx-auto grid w-full max-w-[86rem] gap-[2.5rem] tablet:gap-[5rem] desktop:grid-cols-[14.375rem_minmax(0,1fr)]">
         <header className="flex flex-col items-start gap-[0.5rem] desktop:sticky desktop:top-[5rem] desktop:self-start">
           <h2 id="results-title" className="type-label-md">
             {content.eyebrow}

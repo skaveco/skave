@@ -7,11 +7,13 @@ import { Text3DFlip } from "@/components/ui/text-3d-flip";
 type HeaderLinkProps = LinkProps &
   Omit<AnchorHTMLAttributes<HTMLAnchorElement>, keyof LinkProps | "children"> & {
     children: string;
+    difference?: boolean;
     icon?: boolean;
   };
 
 export function HeaderLink({
   children,
+  difference = true,
   icon = false,
   className = "",
   ...props
@@ -22,7 +24,7 @@ export function HeaderLink({
       {...props}
     >
       <span className="sr-only">{children}</span>
-      <Text3DFlip difference>{children}</Text3DFlip>
+      <Text3DFlip difference={difference}>{children}</Text3DFlip>
       {icon && <ArrowUpRightIcon aria-hidden="true" className="size-4 shrink-0" />}
     </Link>
   );

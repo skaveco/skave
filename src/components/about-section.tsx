@@ -11,9 +11,9 @@ export function AboutSection({ content }: AboutSectionProps) {
     <section
       id="sobre"
       aria-labelledby="about-title"
-      className="bg-background-01 px-[1.25rem] py-[5rem] text-text-01 tablet:px-[2.5rem]"
+      className="bg-background-01 px-[1.25rem] py-[1.25rem] tablet:py-[5rem] text-text-01 tablet:px-[2.5rem]"
     >
-      <div className="mx-auto flex w-full max-w-[86rem] flex-col gap-[5rem]">
+      <div className="mx-auto flex w-full max-w-[86rem] flex-col gap-[3rem] tablet:gap-[5rem]">
         <header className="flex max-w-[53.3125rem] flex-col items-start gap-[0.8125rem]">
           <p className="type-label-md">{content.eyebrow}</p>
           <h2 id="about-title" className="type-body-xl">
