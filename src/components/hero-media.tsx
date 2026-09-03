@@ -198,7 +198,7 @@ export function HeroMedia({ playVideoLabel, closeVideoLabel }: HeroMediaProps) {
   return (
     <>
       <div ref={skaveRef} className="relative mx-auto w-full overflow-visible">
-        <div className="relative aspect-[1036/235.455] w-[calc(100%+0.75rem)]">
+        <div className="relative aspect-[1036/235.455] w-full desktop:w-[calc(100%+0.75rem)]">
           <div role="img" aria-label="SKAVE" className="absolute inset-0">
             {letters.map((letter, index) => (
               <div
@@ -258,9 +258,9 @@ export function HeroMedia({ playVideoLabel, closeVideoLabel }: HeroMediaProps) {
               : undefined
           }
           transition={{
-            duration: 0.78,
+            duration: 1,
             delay: 0.4,
-            ease: [0.22, 1, 0.36, 1],
+            ease: "easeInOut",
           }}
           style={desktopMedia ? { x: reduceMotion ? x : smoothX } : undefined}
         >

@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { Tag } from "@/components/ui/tag";
 import { MediaReveal } from "@/components/ui/media-reveal";
+import { TextAnimate } from "@/components/ui/text-animate";
 
 type BlogCardProps = {
   href: string;
@@ -51,7 +52,15 @@ export function BlogCard({
         <time dateTime={dateTime} className="type-label-sm text-text-02">
           ({date})
         </time>
-        <h3 className="type-body-lg w-full">{title}</h3>
+        <h3 className="type-body-lg w-full">
+          <TextAnimate
+            animation="shimmer-sweep"
+            duration={500}
+            delay={0}
+          >
+            {title}
+          </TextAnimate>
+        </h3>
       </div>
     </Link>
   );

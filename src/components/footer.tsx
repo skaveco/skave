@@ -3,11 +3,12 @@
 import { ArrowUpIcon } from "@heroicons/react/24/outline";
 import { motion, useInView, useReducedMotion } from "motion/react";
 import Image from "next/image";
-import { useRef } from "react";
+import { type ReactNode, useRef } from "react";
 
 import type { Dictionary } from "@/app/[lang]/dictionaries";
 import { HeaderLink } from "@/components/header-link";
 import { Button } from "@/components/ui/button";
+import { TextAnimate } from "@/components/ui/text-animate";
 import { localePath, type Locale } from "@/lib/i18n";
 
 const SKAVE_WIDTH = 1036;
@@ -77,6 +78,49 @@ function FooterWordmark() {
   );
 }
 
+function FooterLinkCascade({ children }: { children: ReactNode }) {
+  const reduceMotion = useReducedMotion();
+
+  return (
+    <motion.div
+      className="flex flex-col items-start gap-1"
+      initial={reduceMotion ? false : "hidden"}
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.15 }}
+      variants={{
+        hidden: {},
+        visible: {
+          transition: reduceMotion
+            ? { duration: 0 }
+            : { delayChildren: 0.08, staggerChildren: 0.08 },
+        },
+      }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+function FooterLinkCascadeItem({ children }: { children: ReactNode }) {
+  return (
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, y: 12 },
+        visible: {
+          opacity: 1,
+          y: 0,
+          transition: {
+            duration: 0.5,
+            ease: [0.22, 1, 0.36, 1],
+          },
+        },
+      }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
 export function Footer({ content, lang }: FooterProps) {
   const currentYear = new Date().getFullYear();
 
@@ -90,7 +134,15 @@ export function Footer({ content, lang }: FooterProps) {
 
         <div className="flex flex-col gap-14 desktop:flex-row desktop:items-start desktop:justify-between">
           <div className="flex max-w-80 flex-col items-start gap-8">
-            <p className="type-body-base">{content.statement}</p>
+            <p className="type-body-base">
+              <TextAnimate
+                animation="shimmer-sweep"
+                duration={1000}
+                delay={0}
+              >
+                {content.statement}
+              </TextAnimate>
+            </p>
             <Button
               href="mailto:contato@skave.co"
               icon="arrow-long-right"
@@ -101,57 +153,67 @@ export function Footer({ content, lang }: FooterProps) {
             </Button>
           </div>
 
-          <div className="grid grid-cols-2 gap-x-10 gap-y-10 tablet:grid-cols-3 desktop:w-[22.75rem] desktop:grid-cols-[auto_8rem_auto]">
+          <div className="grid grid-cols-2 gap-x-10 gap-y-10 tablet:grid-cols-3 desktop:w-[25rem] desktop:grid-cols-[auto_8rem_auto]">
             <div className="flex flex-col items-start gap-5">
               <p className="type-label-md text-text-02">{content.explore}</p>
-              <nav className="flex flex-col items-start gap-1" aria-label={content.explore}>
-                {navigation.map(([label, anchor]) => (
-                  <HeaderLink
-                    key={label}
-                    href={localePath(anchor, lang)}
-                    difference={false}
-                    className="!text-text-01"
-                  >
-                    {content.navigation[label]}
-                  </HeaderLink>
-                ))}
+              <nav aria-label={content.explore}>
+                <FooterLinkCascade>
+                  {navigation.map(([label, anchor]) => (
+                    <FooterLinkCascadeItem key={label}>
+                      <HeaderLink
+                        href={localePath(anchor, lang)}
+                        difference={false}
+                        className="!text-text-01"
+                      >
+                        {content.navigation[label]}
+                      </HeaderLink>
+                    </FooterLinkCascadeItem>
+                  ))}
+                </FooterLinkCascade>
               </nav>
             </div>
 
             <div className="flex flex-col items-start gap-5">
               <p className="type-label-md text-text-02">{content.quickContact}</p>
-              <div className="flex flex-col items-start gap-1">
-                <HeaderLink
-                  href="tel:+5511999999999"
-                  difference={false}
-                  className="!text-text-01"
-                >
-                  {content.phone}
-                </HeaderLink>
-                <HeaderLink
-                  href="mailto:contato@skave.co"
-                  difference={false}
-                  className="!text-text-01"
-                >
-                  {content.email}
-                </HeaderLink>
-              </div>
-            </div>
-
-            <div className="flex flex-col items-start gap-5">
-              <p className="type-label-md text-text-02">{content.socialMedia}</p>
-              <div className="flex flex-col items-start gap-1">
-                {content.socialLinks.map((label) => (
+              <FooterLinkCascade>
+                <FooterLinkCascadeItem>
                   <HeaderLink
-                    key={label}
-                    href="#"
+                    href="tel:+5511999999999"
                     difference={false}
                     className="!text-text-01"
                   >
-                    {label}
+                    {content.phone}
                   </HeaderLink>
+                </FooterLinkCascadeItem>
+                <FooterLinkCascadeItem>
+                  <HeaderLink
+                    href="mailto:contato@skave.co"
+                    difference={false}
+                    className="!text-text-01"
+                  >
+                    {content.email}
+                  </HeaderLink>
+                </FooterLinkCascadeItem>
+              </FooterLinkCascade>
+            </div>
+
+            <div className="flex flex-col items-start gap-5">
+              <p className="type-label-md whitespace-nowrap text-text-02">
+                {content.socialMedia}
+              </p>
+              <FooterLinkCascade>
+                {content.socialLinks.map((label) => (
+                  <FooterLinkCascadeItem key={label}>
+                    <HeaderLink
+                      href="#"
+                      difference={false}
+                      className="!text-text-01"
+                    >
+                      {label}
+                    </HeaderLink>
+                  </FooterLinkCascadeItem>
                 ))}
-              </div>
+              </FooterLinkCascade>
             </div>
           </div>
         </div>

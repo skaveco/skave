@@ -30,7 +30,7 @@
   --color-divider: var(--divider);
   --color-fixed-white: var(--fixed-white);
   --color-fixed-black: var(--fixed-black);
-  --font-sans: "Aspekta", Arial, Helvetica, sans-serif;
+  --font-sans: var(--font-aspekta), Arial, Helvetica, sans-serif;
   --font-mono: "Google Sans Code", "SFMono-Regular", Consolas, monospace;
 }
 
@@ -140,10 +140,16 @@ html.lenis body {
 
 .type-text-base {
   font-family: var(--font-sans);
-  font-size: 0.875rem;
+  font-size: 1rem;
   line-height: 1.375rem;
   letter-spacing: 0;
   font-weight: 500;
+}
+
+@media (min-width: 48rem) {
+  .type-text-base {
+    font-size: 0.875rem;
+  }
 }
 
 .type-body-sm {

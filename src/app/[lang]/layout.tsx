@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import localFont from "next/font/local";
 import { notFound } from "next/navigation";
 
 import { SmoothScroll } from "@/components/smooth-scroll";
@@ -6,6 +7,14 @@ import { SiteCursor } from "@/components/ui/cursor";
 import { hasLocale, htmlLang, locales } from "@/lib/i18n";
 import { getDictionary } from "./dictionaries";
 import "../globals.css";
+
+const aspekta = localFont({
+  src: "../fonts/AspektaVF.woff2",
+  variable: "--font-aspekta",
+  weight: "50 1000",
+  display: "swap",
+  fallback: ["Arial", "Helvetica", "sans-serif"],
+});
 
 export const metadata: Metadata = {
   title: "SKAVE",
@@ -27,7 +36,10 @@ export default async function LocaleLayout({
   const dict = await getDictionary(lang);
 
   return (
-    <html lang={htmlLang[lang]} className="h-full antialiased">
+    <html
+      lang={htmlLang[lang]}
+      className={`${aspekta.variable} h-full antialiased`}
+    >
       <body className="flex min-h-full flex-col">
         <SmoothScroll>
           {children}

@@ -147,7 +147,7 @@ export function CustomersSection({ content }: CustomersSectionProps) {
     <section
       id="clientes"
       aria-labelledby="customers-title"
-      className="relative bg-background-01 px-[1.25rem] py-[5rem] text-text-01 tablet:px-[2.5rem]"
+      className="relative bg-background-01 px-[1.25rem] py-[2.5rem] tablet:py-[5rem] text-text-01 tablet:px-[2.5rem] border-b border-divider tablet:border-0"
     >
       <div className="relative z-10 mx-auto flex w-full max-w-[86rem] flex-col gap-[0.625rem]">
         <h2 id="customers-title" className="type-label-md uppercase">

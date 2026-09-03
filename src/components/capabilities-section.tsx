@@ -1,5 +1,6 @@
 import type { Dictionary } from "@/app/[lang]/dictionaries";
 import { StaggeredList } from "@/components/ui/staggered-list";
+import { TextAnimate } from "@/components/ui/text-animate";
 
 type CapabilitiesSectionProps = {
   content: Dictionary["capabilities"];
@@ -11,17 +12,23 @@ export function CapabilitiesSection({ content }: CapabilitiesSectionProps) {
     <section
       id="servicos"
       aria-labelledby="capabilities-title"
-      className="bg-background-01 px-[1.25rem] py-[1.25rem] tablet:py-[5rem] text-text-01 tablet:px-[2.5rem]"
+      className="bg-background-01 px-[1.25rem] py-[2.50rem] tablet:py-[5rem] text-text-01 tablet:px-[2.5rem]"
     >
       <div className="mx-auto flex w-full max-w-[86rem] flex-col gap-[2.5rem] tablet:gap-[5rem]">
         <header className="flex max-w-[49.375rem] flex-col items-start gap-[0.5rem]">
           <p className="type-label-md">{content.eyebrow}</p>
           <h2 id="capabilities-title" className="type-body-xl">
-            {content.title}
+            <TextAnimate
+              animation="shimmer-sweep"
+              duration={1000}
+              delay={0}
+            >
+              {content.title}
+            </TextAnimate>
           </h2>
         </header>
 
-        <div className="grid w-full gap-[2.5rem] tablet:grid-cols-3">
+        <div className="grid w-full gap-[4rem] tablet:gap-[2.5rem] tablet:grid-cols-3">
           {content.groups.map((group) => (
             <article
               key={group.title}

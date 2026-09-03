@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import type { Dictionary } from "@/app/[lang]/dictionaries";
 import { MediaReveal } from "@/components/ui/media-reveal";
+import { TextAnimate } from "@/components/ui/text-animate";
 
 type ResultsSectionProps = {
   content: Dictionary["results"];
@@ -63,14 +64,22 @@ export function ResultsSection({ content }: ResultsSectionProps) {
     <section
       id="resultados"
       aria-labelledby="results-title"
-      className="bg-background-01 px-[1.25rem] py-[5rem] text-text-01 tablet:px-[2.5rem]"
+      className="bg-background-01 px-[1.25rem] py-[2.50rem] tablet:py-[5rem] text-text-01 tablet:px-[2.5rem] border-b border-divider tablet:border-0"
     >
       <div className="mx-auto grid w-full max-w-[86rem] gap-[2.5rem] tablet:gap-[5rem] desktop:grid-cols-[14.375rem_minmax(0,1fr)]">
         <header className="flex flex-col items-start gap-[0.5rem] desktop:sticky desktop:top-[5rem] desktop:self-start">
           <h2 id="results-title" className="type-label-md">
             {content.eyebrow}
           </h2>
-          <p className="type-body-base max-w-[14.375rem]">{content.description}</p>
+          <p className="type-body-base max-w-[14.375rem]">
+            <TextAnimate
+              animation="shimmer-sweep"
+              duration={500}
+              delay={0}
+            >
+              {content.description}
+            </TextAnimate>
+          </p>
         </header>
 
         <div className="grid gap-[2.5rem] tablet:grid-cols-3 tablet:gap-[1.25rem]">
@@ -85,7 +94,7 @@ export function ResultsSection({ content }: ResultsSectionProps) {
               >
                 <MediaReveal
                   delay={index * 180}
-                  className="relative aspect-square w-full overflow-hidden bg-background-02"
+                  className="relative aspect-square w-full overflow-hidden bg-background-01"
                 >
                   <Image
                     src={asset.image}
@@ -98,7 +107,15 @@ export function ResultsSection({ content }: ResultsSectionProps) {
 
                 <div className="flex w-full flex-col items-start gap-[1.375rem]">
                   <ResultLogo logo={asset.logo} />
-                  <p className="type-body-sm text-text-02">{card.description}</p>
+                  <p className="type-body-sm text-text-02">
+                    <TextAnimate
+                      animation="shimmer-sweep"
+                      duration={500}
+                      delay={(index + 1) * 100}
+                    >
+                      {card.description}
+                    </TextAnimate>
+                  </p>
                 </div>
               </article>
             );

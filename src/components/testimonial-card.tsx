@@ -21,14 +21,14 @@ export function TestimonialCard({
   return (
     <figure
       data-cursor="drag"
-      className={`flex w-full cursor-none flex-col items-start gap-[2rem] border border-divider bg-background-02 p-[2.5rem] text-text-01 ${className}`}
+      className={`flex w-full cursor-none flex-col items-start gap-[2rem] border border-divider bg-background-02 p-[1.25rem] tablet:p-[2.5rem] text-text-01 ${className}`}
     >
       <span
         aria-hidden="true"
         className="h-[1.5625rem] w-[2.875rem] shrink-0 bg-primary [mask:url('/testimonials/quote-mark.svg')_center/100%_100%_no-repeat]"
       />
 
-      <blockquote className="type-body-base h-[7.5rem] w-full overflow-hidden [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:6]">
+      <blockquote className="type-body-base h-[9rem] w-full overflow-hidden [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:6]">
         {quote}
       </blockquote>
 
@@ -50,7 +50,7 @@ export function TestimonialCard({
           />
         )}
 
-        <div className="type-body-sm flex min-w-0 flex-col">
+        <div className="type-body-sm gap-[0.2rem] flex min-w-0 flex-col">
           <span>{authorName}</span>
           <span className="text-text-02">{authorRole}</span>
         </div>

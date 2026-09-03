@@ -6,30 +6,47 @@ type MediaRevealProps = {
   children: ReactNode;
   className?: string;
   delay?: number;
+  fade?: boolean;
+  mobileOnly?: boolean;
 };
 
-export function MediaReveal({ children, className = "", delay = 0 }: MediaRevealProps) {
-  const elementRef = useRef<HTMLDivElement>(null);
+export function MediaReveal({
+  children,
+  className = "",
+  delay = 0,
+  fade = true,
+  mobileOnly = false,
+}: MediaRevealProps) {
+  const observerRef = useRef<HTMLDivElement>(null);
+  const mediaRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const element = elementRef.current;
+    const observerElement = observerRef.current;
+    const mediaElement = mediaRef.current;
+    if (!observerElement || !mediaElement) return;
+
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (!element || reduceMotion || !("IntersectionObserver" in window)) return;
+    const desktop = window.matchMedia("(min-width: 68.75rem)").matches;
+    if (reduceMotion || (mobileOnly && desktop) || !("IntersectionObserver" in window)) {
+      mediaElement.style.clipPath = "inset(0 0 0% 0)";
+      mediaElement.style.opacity = "1";
+      return;
+    }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry?.isIntersecting) return;
 
-        element.animate(
+        mediaElement.animate(
           [
-            { clipPath: "inset(0 0 100% 0)", opacity: 0 },
+            { clipPath: "inset(0 0 100% 0)", opacity: fade ? 0 : 1 },
             { clipPath: "inset(0 0 0% 0)", opacity: 1 },
           ],
           {
-            duration: 700,
+            duration: 1000,
             delay,
             easing: "ease-in-out",
-            fill: "both",
+            fill: "forwards",
           },
         );
         observer.disconnect();
@@ -37,13 +54,19 @@ export function MediaReveal({ children, className = "", delay = 0 }: MediaReveal
       { threshold: 0.2 },
     );
 
-    observer.observe(element);
+    observer.observe(observerElement);
     return () => observer.disconnect();
-  }, [delay]);
+  }, [delay, fade, mobileOnly]);
 
   return (
-    <div ref={elementRef} className={className}>
-      {children}
+    <div ref={observerRef} className={className}>
+      <div
+        ref={mediaRef}
+        className={`size-full ${mobileOnly ? "desktop:![clip-path:inset(0)] desktop:!opacity-100" : ""}`}
+        style={{ clipPath: "inset(0 0 100% 0)", opacity: fade ? 0 : 1 }}
+      >
+        {children}
+      </div>
     </div>
   );
 }

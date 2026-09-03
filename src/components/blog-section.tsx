@@ -21,7 +21,7 @@ export function BlogSection({ content, lang, posts }: BlogSectionProps) {
     <section
       id="novidades"
       aria-labelledby="blog-title"
-      className="relative bg-background-01 px-[1.25rem] py-[5rem] text-text-01 tablet:px-[2.5rem] desktop:py-[4.5625rem]"
+      className="relative bg-background-01 px-[1.25rem] py-[2.5rem] tablet:py-[5rem] text-text-01 tablet:px-[2.5rem] desktop:py-[4.5625rem] border-b border-divider tablet:border-0"
     >
       <div className="mx-auto flex w-full max-w-[86rem] flex-col gap-[3rem]">
         <header className="flex flex-col items-start gap-[1.25rem] tablet:flex-row tablet:items-end tablet:justify-between tablet:gap-[2rem]">
