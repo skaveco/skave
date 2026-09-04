@@ -19,6 +19,7 @@ type EasingType =
   | "easeInOutQuart";
 
 type TextAnimateProps = {
+  active?: boolean;
   animation: "slideUp" | "shimmer-sweep";
   children: string;
   duration?: number;
@@ -44,6 +45,7 @@ const easings: Record<EasingType, string> = {
 };
 
 export function TextAnimate({
+  active,
   animation,
   children,
   duration,
@@ -56,6 +58,8 @@ export function TextAnimate({
   const reduceMotion = useReducedMotion();
 
   useEffect(() => {
+    if (active !== undefined) return;
+
     const element = ref.current;
 
     if (!element || !("IntersectionObserver" in window)) {
@@ -75,9 +79,9 @@ export function TextAnimate({
 
     observer.observe(element);
     return () => observer.disconnect();
-  }, []);
+  }, [active]);
 
-  const shouldShow = isVisible || reduceMotion;
+  const shouldShow = reduceMotion || active === true || (active === undefined && isVisible);
   const resolvedDuration = duration ?? (animation === "shimmer-sweep" ? 850 : 1000);
 
   if (animation === "shimmer-sweep") {

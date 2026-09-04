@@ -15,6 +15,7 @@ type ButtonProps = Omit<
   gap?: CSSProperties["gap"];
   href?: string;
   icon?: "arrow-long-right";
+  iconSize?: CSSProperties["width"];
 };
 
 // Figma: Website Skave 3.0, node 2845:411.
@@ -25,6 +26,7 @@ export function Button({
   gap = "0.5rem",
   href,
   icon,
+  iconSize = "1.5rem",
   style,
   type = "button",
   ...props
@@ -36,7 +38,8 @@ export function Button({
       {icon === "arrow-long-right" && (
         <span
           aria-hidden="true"
-          className="relative block size-6 shrink-0 overflow-hidden"
+          className="relative block shrink-0 overflow-hidden"
+          style={{ width: iconSize, height: iconSize }}
         >
           <ArrowLongRightIcon className="absolute inset-0 size-full transition-transform duration-550 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-full group-focus-visible:translate-x-full motion-reduce:transform-none" />
           <ArrowLongRightIcon className="absolute inset-0 size-full -translate-x-full transition-transform duration-550 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-0 group-focus-visible:translate-x-0 motion-reduce:hidden" />

@@ -1,4 +1,5 @@
 import Image, { type ImageProps } from "next/image";
+import Link from "next/link";
 
 import { MediaReveal } from "@/components/ui/media-reveal";
 import { TextAnimate } from "@/components/ui/text-animate";
@@ -11,6 +12,7 @@ type ProjectItemProps = {
   publishedAt: string;
   image?: ImageProps["src"];
   imageAlt: string;
+  href?: string;
   className?: string;
 };
 
@@ -23,13 +25,12 @@ export function ProjectItem({
   publishedAt,
   image = "/hero/video-poster.jpg",
   imageAlt,
+  href,
   className = "",
 }: ProjectItemProps) {
-  return (
-    <article
-      tabIndex={0}
-      className={`group relative flex w-full flex-col items-start gap-[0.75rem] border-b border-divider py-[1.25rem] text-text-02 outline-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-text-01 desktop:flex-row desktop:items-center desktop:justify-between desktop:gap-0 ${className}`}
-    >
+  const rootClassName = `group relative flex w-full flex-col items-start gap-[0.75rem] border-b border-divider py-[1.25rem] text-text-02 outline-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-text-01 desktop:flex-row desktop:items-center desktop:justify-between desktop:gap-0 ${className}`;
+  const content = (
+    <>
       <div className="flex w-full shrink-0 flex-col items-start justify-center gap-[1.25rem] text-text-01 transition-[gap,color] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none desktop:w-auto desktop:flex-row desktop:items-center desktop:gap-[2.5rem] desktop:whitespace-nowrap desktop:text-text-02 desktop:group-hover:gap-[5rem] desktop:group-hover:text-text-01 desktop:group-focus-visible:gap-[5rem] desktop:group-focus-visible:text-text-01">
         <span className="type-body-base">({number})</span>
         <h3 className="type-heading-md">
@@ -68,6 +69,22 @@ export function ProjectItem({
           </figcaption>
         </figure>
       </MediaReveal>
+    </>
+  );
+
+  if (href) {
+    return (
+      <article>
+        <Link href={href} className={rootClassName}>
+          {content}
+        </Link>
+      </article>
+    );
+  }
+
+  return (
+    <article tabIndex={0} className={rootClassName}>
+      {content}
     </article>
   );
 }

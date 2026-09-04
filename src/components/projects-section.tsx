@@ -43,6 +43,8 @@ export function ProjectsSection({ content, projects }: ProjectsSectionProps) {
               segment={project.segment}
               publishedAt={project.publishedAt}
               imageAlt={project.imageAlt}
+              image={project.image}
+              href={project.href}
             />
           ))}
         </div>

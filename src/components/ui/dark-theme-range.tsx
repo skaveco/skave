@@ -5,9 +5,13 @@ import { useEffect, useRef } from "react";
 
 type DarkThemeRangeProps = {
   children: ReactNode;
+  persistAfter?: boolean;
 };
 
-export function DarkThemeRange({ children }: DarkThemeRangeProps) {
+export function DarkThemeRange({
+  children,
+  persistAfter = false,
+}: DarkThemeRangeProps) {
   const rangeRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -20,7 +24,11 @@ export function DarkThemeRange({ children }: DarkThemeRangeProps) {
     }
 
     const observer = new IntersectionObserver(([entry]) => {
-      root.dataset.theme = entry?.isIntersecting ? "dark" : "light";
+      if (!entry) return;
+
+      const isPastRange = entry.boundingClientRect.bottom <= 0;
+      root.dataset.theme =
+        entry.isIntersecting || (persistAfter && isPastRange) ? "dark" : "light";
     });
 
     observer.observe(range);
@@ -29,7 +37,7 @@ export function DarkThemeRange({ children }: DarkThemeRangeProps) {
       observer.disconnect();
       root.dataset.theme = "light";
     };
-  }, []);
+  }, [persistAfter]);
 
   return <div ref={rangeRef}>{children}</div>;
 }

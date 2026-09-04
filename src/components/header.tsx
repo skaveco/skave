@@ -20,7 +20,7 @@ type HeaderProps = {
 
 const navigation = [
   ["services", "#especialidades"],
-  ["cases", "#projetos"],
+  ["cases", "/projetos"],
   ["about", "#sobre"],
   ["news", "#novidades"],
 ] as const;

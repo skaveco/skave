@@ -2,7 +2,6 @@
 
 import { ArrowUpIcon } from "@heroicons/react/24/outline";
 import { motion, useInView, useReducedMotion } from "motion/react";
-import Image from "next/image";
 import { type ReactNode, useRef } from "react";
 
 import type { Dictionary } from "@/app/[lang]/dictionaries";
@@ -28,10 +27,10 @@ type FooterProps = {
 };
 
 const navigation = [
-  ["projects", "#projetos"],
+  ["projects", "/projetos"],
   ["solutions", "#especialidades"],
   ["about", "#sobre"],
-  ["testimonials", "#depoimentos"],
+  ["news", "#novidades"],
 ] as const;
 
 function FooterWordmark() {
@@ -54,23 +53,25 @@ function FooterWordmark() {
             }}
           >
             <motion.div
-              className="relative size-full"
+              className="size-full bg-text-01"
               initial={reduceMotion ? false : { y: "110%" }}
               animate={reduceMotion || isInView ? { y: 0 } : { y: "110%" }}
+              style={{
+                WebkitMaskImage: `url(${letter.src})`,
+                WebkitMaskPosition: "center",
+                WebkitMaskRepeat: "no-repeat",
+                WebkitMaskSize: "100% 100%",
+                maskImage: `url(${letter.src})`,
+                maskPosition: "center",
+                maskRepeat: "no-repeat",
+                maskSize: "100% 100%",
+              }}
               transition={{
                 duration: reduceMotion ? 0 : 0.68,
                 delay: reduceMotion ? 0 : index * 0.1,
                 ease: [0.22, 1, 0.36, 1],
               }}
-            >
-              <Image
-                src={letter.src}
-                alt=""
-                fill
-                unoptimized
-                sizes="20vw"
-              />
-            </motion.div>
+            />
           </div>
         ))}
       </div>

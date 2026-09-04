@@ -14,7 +14,7 @@ import { ResultsSection } from "@/components/results-section";
 import { TestimonialsSection } from "@/components/testimonials-section";
 import { DarkThemeRange } from "@/components/ui/dark-theme-range";
 import { blogPostCards } from "@/data/blog";
-import { projectCards } from "@/data/projects";
+import { emphasisProjectCards } from "@/data/projects";
 import { hasLocale } from "@/lib/i18n";
 import { getDictionary } from "./dictionaries";
 
@@ -32,7 +32,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         <Hero lang={lang} content={dict.hero} />
         <ProjectsSection
           content={dict.projects}
-          projects={projectCards(lang)}
+          projects={emphasisProjectCards(lang)}
         />
         <AboutSection content={dict.about} />
         <ResultsSection content={dict.results} />

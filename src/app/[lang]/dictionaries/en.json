@@ -3,7 +3,7 @@
     "homeLabel": "Go to home",
     "navigationLabel": "Primary navigation",
     "services": "Services",
-    "cases": "Cases",
+    "cases": "Work",
     "about": "About",
     "news": "News",
     "contact": "Contact",
@@ -25,10 +25,10 @@
     "contact": "Contact",
     "explore": "EXPLORE",
     "navigation": {
-      "projects": "Projects",
+      "projects": "Work",
       "solutions": "Solutions",
       "about": "About",
-      "testimonials": "Testimonials"
+      "news": "News"
     },
     "quickContact": "QUICK CONTACT",
     "phone": "+55 11 99999-9999",
@@ -42,6 +42,67 @@
     "title": "Work",
     "viewAll": "View all",
     "cursorCase": "(VIEW CASE)"
+  },
+  "projectsPage": {
+    "title": "Projects",
+    "explore": "Explore the projects",
+    "filterLabel": "Filter projects by category",
+    "filters": {
+      "all": "All",
+      "brandDevelopment": "Brand Development",
+      "onlineExperience": "Online Experience",
+      "digitalProduct": "Digital Product"
+    }
+  },
+  "projectInfo": {
+    "segment": "BUSINESS",
+    "date": "DATE",
+    "services": "SERVICES",
+    "location": "LOCATION",
+    "challenge": "Challenge",
+    "solution": "Solution",
+    "capabilities": "Capabilities",
+    "credits": "Credits",
+    "mediaLabel": "Project gallery"
+  },
+  "otherProjects": {
+    "title": "Other projects",
+    "viewAll": "View all"
+  },
+  "projectsFaq": {
+    "eyebrow": "(FAQ)",
+    "title": "We work alongside digital businesses",
+    "cta": "Talk to Skave",
+    "items": [
+      {
+        "question": "What types of projects do you develop?",
+        "answer": "We work across three main areas: brand positioning, digital experiences, and digital products. This ranges from strategy and verbal and visual identity to websites, platforms, applications, prototypes, and design systems."
+      },
+      {
+        "question": "Is there a minimum investment required to work with Skave?",
+        "answer": "The investment varies according to the scope, complexity, and stage of each business. After an initial conversation, we prepare a proposal aligned with the project's goals and needs."
+      },
+      {
+        "question": "How long does a project with Skave usually take?",
+        "answer": "The timeline depends on the scope and complexity of the solution. More focused projects may take a few weeks, while broader initiatives are organized into stages over several months."
+      },
+      {
+        "question": "Do you build projects from scratch or also improve existing solutions?",
+        "answer": "We do both. We can create a brand, experience, or product from the ground up, as well as assess and evolve an existing solution through research, benchmarking, audits, and experience and interface improvements."
+      },
+      {
+        "question": "Can Skave work exclusively on Branding or exclusively on Tech?",
+        "answer": "Yes. Branding and Tech can be engaged independently or together. The working structure is defined according to the challenge and the capabilities the project actually requires."
+      },
+      {
+        "question": "How do you define the ideal solution for each project?",
+        "answer": "We begin by understanding the business, its context, its users, and its goals. From this assessment, we combine strategy, design, and technology in the right measure to build a relevant and viable solution."
+      },
+      {
+        "question": "Does the work end at delivery, or do you also support the project's evolution?",
+        "answer": "We can provide both one-off deliveries and ongoing support. After launch, we can assist with analysis, improvements, and new stages of evolution according to the needs of the business."
+      }
+    ]
   },
   "blog": {
     "title": "News",
