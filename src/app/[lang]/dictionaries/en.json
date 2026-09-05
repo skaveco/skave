@@ -1,6 +1,10 @@
 {
+  "metadata": {
+    "title": "Skave | Branding and Technology for Digital Businesses",
+    "description": "A strategic, technical, and creative partner for digital businesses. We build brands, websites, and digital products, from planning to delivery."
+  },
   "header": {
-    "homeLabel": "Go to home",
+    "homeLabel": "Go to homepage",
     "navigationLabel": "Primary navigation",
     "services": "Services",
     "cases": "Work",
@@ -12,16 +16,16 @@
     "menuCloseLabel": "Close menu"
   },
   "hero": {
-    "statement": "The strategic and technical Branding and Technology partner for digital businesses and companies undergoing digital transformation.",
-    "cta": "Free Assessment",
-    "location": "São José/SC",
+    "statement": "The strategic and technical Branding and Technology partner for digital businesses.",
+    "cta": "Talk to our team",
+    "location": "São José/SC - São Paulo/SP",
     "explore": "(Explore the site)",
-    "playVideo": "Play institutional video",
+    "playVideo": "Watch our company video",
     "closeVideo": "Close video",
-    "cursorVideo": "(VIEW VIDEO)"
+    "cursorVideo": "(WATCH VIDEO)"
   },
   "footer": {
-    "statement": "The strategic and technical Branding and Technology partner for digital businesses and companies undergoing digital transformation.",
+    "statement": "The strategic and technical Branding and Technology partner for digital businesses.",
     "contact": "Contact",
     "explore": "EXPLORE",
     "navigation": {
@@ -31,19 +35,27 @@
       "news": "News"
     },
     "quickContact": "QUICK CONTACT",
-    "phone": "+55 11 99999-9999",
+    "phone": "+55 (48) 99181-0032",
     "email": "contato@skave.co",
     "socialMedia": "SOCIAL MEDIA",
-    "socialLinks": ["Instagram", "LinkedIn", "Behance"],
+    "socialLinks": [
+      { "label": "Instagram", "url": "https://www.instagram.com/skave_co/" },
+      { "label": "LinkedIn", "url": "https://www.linkedin.com/company/skave" },
+      { "label": "Behance", "url": "https://www.behance.net/skave" }
+    ],
     "copyright": "Skave©{year}. All rights reserved.",
-    "goTop": "Go top"
+    "goTop": "Back to the surface"
   },
   "projects": {
     "title": "Work",
     "viewAll": "View all",
-    "cursorCase": "(VIEW CASE)"
+    "cursorCase": "(VIEW PROJECT)"
   },
   "projectsPage": {
+    "metadata": {
+      "title": "Branding and Technology Projects | Skave",
+      "description": "Explore Skave’s work in brand development, online experiences, and digital products. Strategy, design, and technology for digital businesses."
+    },
     "title": "Projects",
     "explore": "Explore the projects",
     "filterLabel": "Filter projects by category",
@@ -55,7 +67,7 @@
     }
   },
   "projectInfo": {
-    "segment": "BUSINESS",
+    "segment": "INDUSTRY",
     "date": "DATE",
     "services": "SERVICES",
     "location": "LOCATION",
@@ -111,7 +123,7 @@
   },
   "about": {
     "eyebrow": "(SKAVE)",
-    "statement": "We work alongside digital businesses that need strategic, creative, and technical capabilities to build and evolve brands, products, and technology solutions.",
+    "statement": "We bring depth to businesses that need a strategic, technical, and creative partner. We help brands, digital experiences, and digital products evolve.",
     "reelLabel": "Skave moments with clients, partners, and the community",
     "videoFallback": "Your browser does not support video playback.",
     "approach": {
@@ -124,20 +136,20 @@
     }
   },
   "results": {
-    "eyebrow": "(IMPACTO GERADO)",
-    "description": "Resultados que mostram o impacto do nosso trabalho nos negócios que atendemos.",
+    "eyebrow": "(OUR IMPACT)",
+    "description": "Results that validate our in-depth approach to business",
     "cards": [
       {
-        "imageAlt": "Equipe da Dr.Sim recebendo uma premiação do Santander X Awards",
-        "description": "Do 0 ao protótipo funcional. +1 aporte financeiro e premiação oficial pelo Santander Startup"
+        "imageAlt": "Leads2b representative at the Asaas Connect event",
+        "description": "The rebranding supported the brand’s biggest expansion yet: the official launch of its franchise model in 2025."
       },
       {
-        "imageAlt": "Representante da Leads2b em um painel do Asaas Connect",
-        "description": "Do 0 ao protótipo funcional. +1 aporte financeiro e premiação oficial pelo Santander Startup"
+        "imageAlt": "Dr.Sim team receiving an award at the Santander X Awards",
+        "description": "National Santander X champion in 2025, standing out in Brazil’s technology ecosystem."
       },
       {
-        "imageAlt": "Equipe da Dr.Sim recebendo uma premiação do Santander X Awards",
-        "description": "Do 0 ao protótipo funcional. +1 aporte financeiro e premiação oficial pelo Santander Startup"
+        "imageAlt": "Setfin representative at an event",
+        "description": "Scaling the B2B and B2C business model through all-in-one positioning."
       }
     ]
   },
@@ -147,23 +159,23 @@
       {
         "title": "Results",
         "value": 300,
-        "description": "Companies and startups that evolved through solutions developed by us"
+        "description": "Companies that have grown through our solutions."
       },
       {
         "title": "Experience",
         "value": 7,
-        "description": "years of experience in Branding and Technology"
+        "description": "Years of experience in branding and technology."
       },
       {
         "title": "Awards",
         "value": 24,
-        "description": "Recognitions from international curatorships"
+        "description": "Recognition from the world's leading design curators."
       }
     ]
   },
   "testimonials": {
     "eyebrow": "(TESTIMONIALS)",
-    "title": "What our clients say about us",
+    "title": "What our clients say about us.",
     "reviews": "20+ Google reviews",
     "cursorDrag": "DRAG",
     "previousLabel": "View previous testimonial",
@@ -173,25 +185,31 @@
       {
         "quote": "I want to sincerely thank the Skave team for the incredible work creating our materials. You captured the essence of the project with creativity, professionalism, and excellent taste. It was a smooth, easy, and highly productive partnership, exactly as it should be! I am very happy with the result and strongly recommend your work!",
         "authorName": "Rodolfo Matos",
-        "authorRole": "Creative Director, SPlan Brazil",
+        "authorRole": "Creative Director, SPlan Brasil",
         "authorImageAlt": ""
       },
       {
-        "quote": "Skave transformed an early-stage idea into a clear, consistent brand that is ready to grow. The process was highly collaborative, and every decision was supported by strategy and purpose.",
-        "authorName": "Marina Costa",
-        "authorRole": "Co-founder, Lumio",
+        "quote": "We have worked with several agencies and designers over the years, but the Skave team has undoubtedly been the best fit for us in terms of quality, speed, and day-to-day collaboration. They have been doing incredible work for our company across different areas of design, always taking great care with our identity and positioning.",
+        "authorName": "Eduardo Fernandes",
+        "authorRole": "Product Manager at SULTS",
         "authorImageAlt": ""
       },
       {
-        "quote": "With Skave, we found a team that truly understood our business. The combination of strategic thinking, design, and technology made the project more efficient and significantly improved the final result.",
-        "authorName": "Lucas Almeida",
-        "authorRole": "CEO, Norte Digital",
+        "quote": "We worked with Skave on the UI design for our startup and were very happy with the final result, the communication throughout the creative process, and the adjustments made to better reflect our idea. We recommend the agency to others because we trust Skave’s work. Wishing you every success, team!",
+        "authorName": "Tales Melo",
+        "authorRole": "Co-founder of Quickmove",
         "authorImageAlt": ""
       },
       {
-        "quote": "From our first meeting, we felt confident about how the project was being led. The team was collaborative, organized, and extremely attentive to detail, delivering an experience that exceeded our expectations.",
-        "authorName": "Camila Ribeiro",
-        "authorRole": "Head of Marketing, Vértice",
+        "quote": "An outstanding team. Always impeccable work, with great ideas and clean, creative design. I continue to work with Skave and will keep doing so.",
+        "authorName": "Rommel Araujo",
+        "authorRole": "Co-founder and CEO at Dr.Sim",
+        "authorImageAlt": ""
+      },
+      {
+        "quote": "Magnificent work from start to finish. You can feel the care, dedication, and commitment to excellence. A flawless experience. They delivered more than agreed, which was very rewarding. Thank you for all the care, and a big hug to everyone involved.",
+        "authorName": "Gustavo Itamaro",
+        "authorRole": "Co-founder of Voris",
         "authorImageAlt": ""
       }
     ]
@@ -207,29 +225,30 @@
       "Sults",
       "SmartPedidos",
       "Normedic",
-      "ClickCannabis"
+      "ClickCannabis",
+      "Splan"
     ]
   },
   "partners": {
     "eyebrow": "(PARTNERSHIPS)",
-    "description": "Building partnerships that strengthen our networking ecosystem.",
+    "description": "Partner companies that make our offering even more complete.",
     "cards": [
       {
         "name": "Bridge Accelerator",
-        "description": "From zero to a functional prototype. One additional round of funding and official recognition from Santander Startup"
+        "description": "One of the powerhouses within our range of solutions, helping digital businesses structure their operations and scale."
       },
       {
-        "name": "Bridge Accelerator",
-        "description": "From zero to a functional prototype. One additional round of funding and official recognition from Santander Startup"
+        "name": "Cozia - Marketing agency",
+        "description": "The next step in the Skave journey, transforming your digital presence with high performance and real results."
       }
     ]
   },
   "capabilities": {
     "eyebrow": "(AREAS OF EXPERTISE AND CAPABILITIES)",
-    "title": "A complete structure for building tailored solutions. From strategy to results",
+    "title": "Comprehensive expertise to build solutions tailored to your business, from planning to delivery.",
     "groups": [
       {
-        "title": "Positioning",
+        "title": "Brand development",
         "items": [
           "Brand analysis and research",
           "Verbal identity",
@@ -243,20 +262,21 @@
       {
         "title": "Online experience",
         "items": [
-          "Digital structure",
-          "Institutional website",
+          "Corporate website",
           "Landing page",
-          "Social media design",
-          "Research and analysis",
-          "Digital audit"
+          "E-commerce",
+          "SEO and GEO strategy",
+          "Online research and analysis",
+          "Digital audit",
+          "Digital structure"
         ]
       },
       {
         "title": "Digital product",
         "items": [
           "Market and competitor benchmarking",
-          "Information architecture and user journey",
-          "Analysis and research",
+          "Architecture and user journey",
+          "Product research and analysis",
           "UI/UX Design",
           "Prototypes",
           "Design System"

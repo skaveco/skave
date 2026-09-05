@@ -145,7 +145,7 @@ export function Footer({ content, lang }: FooterProps) {
               </TextAnimate>
             </p>
             <Button
-              href="mailto:contato@skave.co"
+              href={`mailto:${content.email}`}
               icon="arrow-long-right"
               fontSize="0.875rem"
               gap="0.5rem"
@@ -179,7 +179,7 @@ export function Footer({ content, lang }: FooterProps) {
               <FooterLinkCascade>
                 <FooterLinkCascadeItem>
                   <HeaderLink
-                    href="tel:+5511999999999"
+                    href={`tel:${content.phone.replace(/[^\d+]/g, "")}`}
                     difference={false}
                     className="!text-text-01"
                   >
@@ -188,7 +188,7 @@ export function Footer({ content, lang }: FooterProps) {
                 </FooterLinkCascadeItem>
                 <FooterLinkCascadeItem>
                   <HeaderLink
-                    href="mailto:contato@skave.co"
+                    href={`mailto:${content.email}`}
                     difference={false}
                     className="!text-text-01"
                   >
@@ -203,10 +203,10 @@ export function Footer({ content, lang }: FooterProps) {
                 {content.socialMedia}
               </p>
               <FooterLinkCascade>
-                {content.socialLinks.map((label) => (
+                {content.socialLinks.map(({ label, url }) => (
                   <FooterLinkCascadeItem key={label}>
                     <HeaderLink
-                      href="#"
+                      href={url}
                       difference={false}
                       className="!text-text-01"
                     >

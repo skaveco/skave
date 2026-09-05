@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+import { SplanLogo } from "@/components/ui/splan-logo";
+
 import type { Dictionary } from "@/app/[lang]/dictionaries";
 
 type CustomersSectionProps = {
@@ -10,26 +12,33 @@ const customerLogos = [
   {
     key: "orbita",
     content: (
-      <Image src="/customers/orbita.svg" alt="" width={120} height={24} />
+      <span className="relative block aspect-[5/1] w-[7.2rem] max-w-[80%]">
+        <Image
+          src="/customers/orbita.svg"
+          alt=""
+          fill
+          className="object-contain"
+        />
+      </span>
     ),
   },
   {
     key: "facilita",
     content: (
-      <span className="flex h-[1.5533rem] w-[5rem] items-center gap-[0.4068rem]">
+      <span className="flex aspect-[5/1.5533] w-[6rem] max-w-[80%] items-center gap-[8.136%]">
         <Image
           src="/customers/facilita-mark.svg"
           alt=""
           width={25}
           height={25}
-          className="size-[1.5524rem]"
+          className="h-auto w-[31.048%] shrink-0"
         />
         <Image
           src="/customers/facilita-wordmark.svg"
           alt=""
           width={49}
           height={11}
-          className="h-[0.6878rem] w-[3.0386rem]"
+          className="h-auto w-[60.772%] shrink-0"
         />
       </span>
     ),
@@ -37,20 +46,20 @@ const customerLogos = [
   {
     key: "leads2b",
     content: (
-      <span className="flex h-[1.4996rem] w-[6.25rem] items-center gap-[0.3749rem]">
+      <span className="flex aspect-[6.25/1.4996] w-[6.25rem] max-w-[80%] items-center gap-[5.9984%]">
         <Image
           src="/customers/leads2b-mark.svg"
           alt=""
           width={22}
           height={22}
-          className="h-[1.359rem] w-[1.3735rem]"
+          className="h-auto w-[21.976%] shrink-0"
         />
         <Image
           src="/customers/leads2b-wordmark.svg"
           alt=""
           width={72}
           height={13}
-          className="h-[0.839rem] w-[4.5016rem]"
+          className="h-auto w-[72.0256%] shrink-0"
         />
       </span>
     ),
@@ -58,7 +67,7 @@ const customerLogos = [
   {
     key: "drSim",
     content: (
-      <Image src="/customers/dr-sim.svg" alt="" width={94} height={25} />
+      <Image src="/customers/dr-sim.svg" alt="" width={94} height={25} className="aspect-[94/24.9688] h-auto w-[5.875rem] max-w-[80%]" />
     ),
   },
   {
@@ -69,28 +78,28 @@ const customerLogos = [
         alt=""
         width={84}
         height={22}
-        className="h-[1.0119rem] w-[4.8012rem]"
+        className="aspect-[76.8298/16.189] h-auto w-[5rem] max-w-[80%]"
       />
     ),
   },
   {
     key: "sults",
     content: (
-      <Image src="/customers/sults.svg" alt="" width={105} height={28} />
+      <Image src="/customers/sults.svg" alt="" width={105} height={28} className="aspect-[105/28] h-auto w-[5.9rem] max-w-[80%]" />
     ),
   },
   {
     key: "smartPedidos",
     content: (
-      <span className="relative h-[0.8226rem] w-[8.5rem]">
+      <span className="relative block aspect-[8.5/0.8226] w-[8.5rem] max-w-[80%]">
         <Image
           src="/customers/smart-pedidos-mark.svg"
           alt=""
           width={15}
           height={13}
-          className="absolute left-0 top-0 h-[0.8224rem] w-[0.9153rem]"
+          className="absolute left-0 top-0 h-auto w-[10.7682%]"
         />
-        <span className="absolute left-[1.151rem] top-0 h-[0.8226rem] w-[7.276rem]">
+        <span className="absolute left-[13.5412%] top-0 h-full w-[85.6%]">
           <Image
             src="/customers/smart-pedidos-wordmark.svg"
             alt=""
@@ -101,7 +110,7 @@ const customerLogos = [
             alt=""
             width={3}
             height={3}
-            className="absolute -right-[0.071rem] top-0 size-[0.143rem]"
+            className="absolute -right-[0.9758%] top-0 h-auto w-[1.9654%]"
           />
         </span>
       </span>
@@ -110,20 +119,20 @@ const customerLogos = [
   {
     key: "normedic",
     content: (
-      <span className="flex h-[0.8912rem] w-[6.875rem] items-center gap-[0.3308rem]">
+      <span className="flex aspect-[6.875/0.8912] w-[7.2rem] max-w-[80%] items-center gap-[4.8116%]">
         <Image
           src="/customers/normedic-mark.svg"
           alt=""
           width={20}
           height={14}
-          className="h-[0.8824rem] w-[1.2196rem]"
+          className="h-auto w-[17.7396%] shrink-0"
         />
         <Image
           src="/customers/normedic-wordmark.svg"
           alt=""
           width={84}
           height={14}
-          className="h-[0.8912rem] w-[5.2382rem]"
+          className="h-auto w-[76.192%] shrink-0"
         />
       </span>
     ),
@@ -131,13 +140,19 @@ const customerLogos = [
   {
     key: "clickCannabis",
     content: (
-      <Image
-        src="/customers/click-cannabis.svg"
-        alt=""
-        width={124}
-        height={22}
-      />
+      <span className="relative block aspect-[124/22.2765] w-[9rem] max-w-[80%]">
+        <Image
+          src="/customers/click-cannabis.svg"
+          alt=""
+          fill
+          className="object-contain"
+        />
+      </span>
     ),
+  },
+  {
+    key: "splan",
+    content: <SplanLogo className="aspect-[74/34] h-auto w-[5rem] max-w-[80%]" />,
   },
 ] as const;
 
@@ -166,10 +181,6 @@ export function CustomersSection({ content }: CustomersSectionProps) {
             </div>
           ))}
 
-          <div
-            aria-hidden="true"
-            className="h-[7.75rem] min-w-0 border border-divider"
-          />
         </div>
       </div>
     </section>

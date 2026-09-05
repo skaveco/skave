@@ -8,6 +8,14 @@ type TestimonialsSectionProps = {
   content: Dictionary["testimonials"];
 };
 
+const authorImages: Record<string, string> = {
+  "Rodolfo Matos": "/testimonials/rodolfo matos-splan.avif",
+  "Eduardo Fernandes": "/testimonials/eduardo-fernandes-sults.avif",
+  "Tales Melo": "/testimonials/quickmove-talles.avif",
+  "Rommel Araujo": "/testimonials/rommel araujo - dr.sim.avif",
+  "Gustavo Itamaro": "/testimonials/gustavo-itamaro-voris.avif",
+};
+
 // Figma: Website Skave 3.0, node 2885:462.
 export function TestimonialsSection({ content }: TestimonialsSectionProps) {
   return (
@@ -63,7 +71,10 @@ export function TestimonialsSection({ content }: TestimonialsSectionProps) {
             key={content.items
               .map((testimonial) => testimonial.authorName)
               .join("-")}
-            testimonials={content.items}
+            testimonials={content.items.map((testimonial) => ({
+              ...testimonial,
+              authorImage: authorImages[testimonial.authorName],
+            }))}
             previousLabel={content.previousLabel}
             nextLabel={content.nextLabel}
             statusLabel={content.statusLabel}

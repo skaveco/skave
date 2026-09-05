@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { SiteCursor } from "@/components/ui/cursor";
 import { hasLocale, htmlLang, locales } from "@/lib/i18n";
+import { indexingEnabled, siteUrl } from "@/lib/seo";
 import { getDictionary } from "./dictionaries";
 import "../globals.css";
 
@@ -17,8 +18,26 @@ const aspekta = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "SKAVE",
-  description: "Site oficial da SKAVE.",
+  metadataBase: new URL(siteUrl),
+  robots: { index: indexingEnabled, follow: true },
+  icons: {
+    icon: [
+      {
+        url: "/meta/favicon-light.png",
+        type: "image/png",
+        sizes: "633x633",
+        media: "(prefers-color-scheme: light)",
+      },
+      {
+        url: "/meta/favicon-dark.png",
+        type: "image/png",
+        sizes: "633x633",
+        media: "(prefers-color-scheme: dark)",
+      },
+    ],
+  },
+  title: "Skave | Branding e Tecnologia para negócios digitais",
+  description: "Parceiro estratégico, técnico e criativo para negócios digitais. Desenvolvemos marcas, sites e produtos digitais, do planejamento à entrega.",
 };
 
 export function generateStaticParams() {

@@ -1,6 +1,7 @@
 import type { Dictionary } from "@/app/[lang]/dictionaries";
 import { MediaReveal } from "@/components/ui/media-reveal";
 import { TextAnimate } from "@/components/ui/text-animate";
+import { ViewportVideo } from "@/components/ui/viewport-video";
 
 type AboutSectionProps = {
   content: Dictionary["about"];
@@ -26,19 +27,18 @@ export function AboutSection({ content }: AboutSectionProps) {
 
         <div className="grid w-full gap-[2.5rem] tablet:grid-cols-[13.3125rem_minmax(0,1fr)_minmax(0,1fr)] tablet:items-start tablet:gap-[1.5rem] desktop:grid-cols-[13.3125rem_minmax(0,1fr)_17.25rem] desktop:gap-[2.5rem]">
           <MediaReveal className="aspect-[9/16] w-full overflow-hidden bg-background-01 md:max-w-[13.3125rem]">
-            <video
+            <ViewportVideo
               aria-label={content.reelLabel}
-              className="size-full object-cover"
-              autoPlay
+              className="pointer-events-none size-full object-cover"
               loop
               muted
               playsInline
-              poster="/hero/video-poster.jpg"
-              preload="metadata"
+              poster="/about/about-poster.jpg"
+              preload="none"
             >
-              <source src="/hero/hero-loop.mp4" type="video/mp4" />
+              <source src="/about/about-loop.mp4" type="video/mp4" />
               {content.videoFallback}
-            </video>
+            </ViewportVideo>
           </MediaReveal>
 
           <article className="min-h-full tablet:border-l border-divider pl-[0.0625rem]">

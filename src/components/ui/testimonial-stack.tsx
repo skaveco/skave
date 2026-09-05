@@ -12,7 +12,9 @@ import { useEffect, useState, type FocusEvent, type ReactNode } from "react";
 import type { Dictionary } from "@/app/[lang]/dictionaries";
 import { TestimonialCard } from "@/components/testimonial-card";
 
-type Testimonial = Dictionary["testimonials"]["items"][number];
+type Testimonial = Dictionary["testimonials"]["items"][number] & {
+  authorImage?: string;
+};
 
 type TestimonialStackProps = {
   testimonials: Testimonial[];
@@ -235,6 +237,7 @@ export function TestimonialStack({
                 quote={item.testimonial.quote}
                 authorName={item.testimonial.authorName}
                 authorRole={item.testimonial.authorRole}
+                authorImage={item.testimonial.authorImage}
                 authorImageAlt={item.testimonial.authorImageAlt}
                 className="h-full"
               />

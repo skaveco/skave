@@ -34,6 +34,7 @@ export function PartnersSection({ content }: PartnersSectionProps) {
             <PartnerCard
               key={`${card.name}-${index}`}
               name={card.name}
+              logo={index === 1 ? "cozia" : "bridge"}
               description={card.description}
               delay={(index + 1) * 200}
             />

@@ -60,7 +60,7 @@ export function Header({ lang, copy }: HeaderProps) {
     <>
       {/* Figma: Website Skave 3.0, node 2855:411. */}
       <motion.header
-        className="fixed inset-x-0 top-0 z-50 overflow-hidden bg-background-01 px-5 py-[1.375rem] text-text-01 desktop:hidden"
+        className="fixed inset-x-0 top-0 z-50 overflow-hidden bg-background-01 px-[1.25rem] tablet:px-[2.5rem] py-[1.375rem] text-text-01 desktop:hidden"
         initial={entrance}
         animate={{ y: 0, height: menuOpen ? "100dvh" : "4.875rem" }}
         transition={entranceTransition}

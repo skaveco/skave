@@ -10,51 +10,69 @@ type ResultsSectionProps = {
 
 const resultAssets = [
   {
-    image: "/results/doutor-sim-award.png",
-    logo: "dr-sim",
-  },
-  {
-    image: "/results/leads2b-event.png",
+    image: "/results/Representante da Leads2b.jpeg",
     logo: "leads2b",
   },
   {
-    image: "/results/doutor-sim-award.png",
-    logo: "dr-sim-wide",
+    image: "/results/Representante da Dr.Sim recebendo prêmio.jpg",
+    logo: "dr-sim",
+  },
+  {
+    image: "/results/Representante da Setfin em evento.jpg",
+    logo: "setfin",
   },
 ] as const;
+
+function LogoMask({
+  src,
+  className,
+}: {
+  src: string;
+  className: string;
+}) {
+  return (
+    <span
+      aria-hidden="true"
+      className={`block shrink-0 bg-current ${className}`}
+      style={{
+        maskImage: `url("${src}")`,
+        maskSize: "contain",
+        maskPosition: "center",
+        maskRepeat: "no-repeat",
+      }}
+    />
+  );
+}
 
 function ResultLogo({ logo }: { logo: (typeof resultAssets)[number]["logo"] }) {
   if (logo === "leads2b") {
     return (
-      <div className="flex h-[1.4375rem] w-[6rem] items-center gap-[0.36rem]">
-        <Image
+      <div
+        role="img"
+        aria-label="Leads2b"
+        className="flex h-[1.4375rem] w-[6rem] items-center gap-[0.36rem] text-text-01"
+      >
+        <LogoMask
           src="/results/leads2b-mark.svg"
-          alt=""
-          width={22}
-          height={21}
           className="h-[1.3046rem] w-[1.3186rem]"
         />
-        <Image
+        <LogoMask
           src="/results/leads2b-wordmark.svg"
-          alt="Leads2b"
-          width={70}
-          height={13}
           className="h-[0.8054rem] w-[4.3215rem]"
         />
       </div>
     );
   }
 
-  const isWide = logo === "dr-sim-wide";
+  const isSetfin = logo === "setfin";
 
   return (
-    <Image
-      src={isWide ? "/results/dr-sim-wide.svg" : "/results/dr-sim.svg"}
-      alt="Dr.Sim"
-      width={isWide ? 98 : 89}
-      height={isWide ? 26 : 24}
-      className={isWide ? "h-[1.625rem] w-[6.1176rem]" : "h-[1.4775rem] w-[5.5625rem]"}
-    />
+    <div role="img" aria-label={isSetfin ? "Setfin" : "Dr.Sim"} className="text-text-01">
+      <LogoMask
+        src={isSetfin ? "/results/logo-setfin.svg" : "/results/dr-sim.svg"}
+        className={isSetfin ? "aspect-[202/44] w-[4.8125rem]" : "h-[1.4775rem] w-[5.5625rem]"}
+      />
+    </div>
   );
 }
 

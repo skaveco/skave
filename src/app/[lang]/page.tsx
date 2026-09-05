@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { AboutSection } from "@/components/about-section";
@@ -16,7 +17,57 @@ import { DarkThemeRange } from "@/components/ui/dark-theme-range";
 import { blogPostCards } from "@/data/blog";
 import { emphasisProjectCards } from "@/data/projects";
 import { hasLocale } from "@/lib/i18n";
+import { homeJsonLd } from "@/lib/seo";
 import { getDictionary } from "./dictionaries";
+
+export async function generateMetadata({
+  params,
+}: PageProps<"/[lang]">): Promise<Metadata> {
+  const { lang } = await params;
+
+  if (!hasLocale(lang)) notFound();
+
+  const dict = await getDictionary(lang);
+  const socialImage = {
+    url: "/meta/opengraph.png",
+    width: 1200,
+    height: 630,
+    type: "image/png",
+    alt:
+      lang === "pt"
+        ? "Skave — Branding e Tecnologia para negócios digitais"
+        : "Skave — Branding and Technology for digital businesses",
+  };
+
+  return {
+    title: dict.metadata.title,
+    description: dict.metadata.description,
+    openGraph: {
+      type: "website",
+      siteName: "Skave",
+      title: dict.metadata.title,
+      description: dict.metadata.description,
+      url: `/${lang}`,
+      locale: lang === "pt" ? "pt_BR" : "en_US",
+      alternateLocale: lang === "pt" ? "en_US" : "pt_BR",
+      images: [socialImage],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: dict.metadata.title,
+      description: dict.metadata.description,
+      images: [socialImage],
+    },
+    alternates: {
+      canonical: `/${lang}`,
+      languages: {
+        "pt-BR": "/pt",
+        en: "/en",
+        "x-default": "/",
+      },
+    },
+  };
+}
 
 export default async function Home({ params }: PageProps<"/[lang]">) {
   const { lang } = await params;
@@ -28,6 +79,12 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
   return (
     <>
       <Header lang={lang} copy={dict.header} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(homeJsonLd(dict, lang)).replace(/</g, "\\u003c"),
+        }}
+      />
       <main>
         <Hero lang={lang} content={dict.hero} />
         <ProjectsSection
