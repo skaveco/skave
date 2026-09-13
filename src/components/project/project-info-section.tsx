@@ -135,7 +135,13 @@ export function ProjectInfoSection({
             <motion.div variants={cascadeItem}>
               <AccordionItem
                 question={content.solution}
-                answer={<p>{project.solution}</p>}
+                answer={
+                  <div className="flex flex-col gap-[1rem]">
+                    {project.solution.split("\n\n").map((paragraph) => (
+                      <p key={paragraph}>{paragraph}</p>
+                    ))}
+                  </div>
+                }
               />
             </motion.div>
             <motion.div variants={cascadeItem}>

@@ -2,10 +2,10 @@ import type { ProjectSource } from "@/data/projects";
 import { en } from "./en";
 import { pt } from "./pt";
 
-export const corretorClube = {
-  slug: "corretor-clube",
-  categories: ["online-experience"],
-  publishedAt: "00/00/0000",
+export const clickCannabis = {
+  slug: "clickcannabis",
+  categories: ["brand-development"],
+  publishedAt: "2026-02-01",
   status: "active",
   emphasisProject: true,
   content: { pt, en },

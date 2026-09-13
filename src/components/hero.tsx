@@ -45,7 +45,7 @@ export function Hero({ content, lang }: HeroProps) {
               {content.statement}
             </motion.h1>
             <Button
-              href={localePath("#contato", lang)}
+              href={localePath("/contato", lang)}
               icon="arrow-long-right"
             >
               {content.cta}

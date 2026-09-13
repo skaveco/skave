@@ -9,6 +9,7 @@ function preferredLocale(request: NextRequest): Locale {
 
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
+  if (pathname === "/api" || pathname.startsWith("/api/")) return;
   const firstSegment = pathname.split("/")[1];
 
   if (hasLocale(firstSegment)) return;

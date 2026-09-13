@@ -2,10 +2,10 @@ import type { ProjectSource } from "@/data/projects";
 import { en } from "./en";
 import { pt } from "./pt";
 
-export const fca = {
-  slug: "fca",
-  categories: ["brand-development"],
-  publishedAt: "00/00/0000",
+export const orbita = {
+  slug: "orbita",
+  categories: ["digital-product"],
+  publishedAt: "2026-04-20",
   status: "active",
   emphasisProject: true,
   content: { pt, en },

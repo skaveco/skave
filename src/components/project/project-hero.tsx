@@ -84,6 +84,7 @@ export function ProjectHero({ content, projects }: ProjectHeroProps) {
                   publishedAt={project.publishedAt}
                   image={project.image}
                   imageAlt={project.imageAlt}
+                  videoSrc={project.videoSrc}
                   href={project.href}
                 />
               );

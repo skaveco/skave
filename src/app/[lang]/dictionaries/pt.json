@@ -44,6 +44,7 @@
       { "label": "Behance", "url": "https://www.behance.net/skave" }
     ],
     "copyright": "Skave©{year}. Todos os direitos reservados.",
+    "privacy": "Aviso de Privacidade",
     "goTop": "Voltar à superfície"
   },
   "projects": {
@@ -281,6 +282,170 @@
           "Protótipos",
           "Design System"
         ]
+      }
+    ]
+  },
+  "contact": {
+    "metadata": {
+      "title": "Contato | Skave",
+      "description": "Conte à Skave sobre sua empresa e seu projeto. Vamos conversar sobre estratégia, experiência e performance."
+    },
+    "title": "Contato",
+    "eyebrow": "BOA INICIATIVA!",
+    "description": "Estamos há mais de 7 anos projetando soluções com um método voltado a Estratégia, Experiência e Performance.",
+    "form": {
+      "personalTitle": "Seus dados",
+      "companyTitle": "Sobre a empresa",
+      "projectTitle": "Sobre o projeto",
+      "name": {
+        "label": "Nome",
+        "placeholder": "Insira seu nome"
+      },
+      "email": {
+        "label": "E-mail",
+        "placeholder": "Insira seu melhor email"
+      },
+      "phone": {
+        "label": "Telefone",
+        "placeholder": "Insira seu telefone"
+      },
+      "referralSource": {
+        "label": "Como e onde encontrou a Skave?",
+        "placeholder": "Como e onde encontrou a Skave?",
+        "options": [
+          { "value": "social-media", "label": "Redes Sociais" },
+          { "value": "referral", "label": "Indicação" },
+          { "value": "google", "label": "Google" },
+          { "value": "online-ad", "label": "Anúncio Online" }
+        ]
+      },
+      "companyNameAndIndustry": {
+        "label": "Nome e segmento da empresa",
+        "placeholder": "Nome e segmento da empresa"
+      },
+      "company": {
+        "label": "Site ou Instagram da empresa",
+        "placeholder": "Site ou Instagram da empresa (https://...)",
+        "urlHint": "Insira uma URL completa começando com https:// ou http://."
+      },
+      "partners": {
+        "label": "Sócios representantes",
+        "placeholder": "Nome dos sócios representantes"
+      },
+      "budget": {
+        "label": "Expectativa de investimento",
+        "placeholder": "Expectativa de Investimento",
+        "options": [
+          {
+            "value": "up-to-7000",
+            "label": "Até R$ 7 mil"
+          },
+          {
+            "value": "7000-15000",
+            "label": "R$ 7 a 15 mil"
+          },
+          {
+            "value": "15000-30000",
+            "label": "R$ 15 a 30 mil"
+          },
+          {
+            "value": "30000-60000",
+            "label": "R$ 30 a 60 mil"
+          },
+          {
+            "value": "over-60000",
+            "label": "Mais de R$ 60 mil"
+          }
+        ]
+      },
+      "message": {
+        "label": "Desafios do projeto",
+        "placeholder": "Como acha que podemos ajudá-lo? Fale mais dos seus desafios."
+      },
+      "submit": "Enviar formulário",
+      "sending": "Enviando…",
+      "success": "Formulário enviado com sucesso! Em breve entraremos em contato.",
+      "error": "Não foi possível confirmar o envio. Tente novamente em instantes.",
+      "privacy": "Ao enviar este formulário, você declara estar ciente de que utilizaremos seus dados para analisar sua solicitação e entrar em contato, conforme nosso",
+      "privacyLink": "Aviso de Privacidade"
+    }
+  },
+  "thankYou": {
+    "metadata": { "title": "Obrigado | Skave" },
+    "title": "Sucesso!",
+    "subtitle": "Vamos escavar.",
+    "description": "Agradecemos pelo contato. Seus dados serão avaliados pelo nosso time comercial e, em breve, entraremos em contato.",
+    "backToSite": "Voltar ao site"
+  },
+  "privacyPage": {
+    "metadata": {
+      "title": "Aviso de Privacidade | Skave",
+      "description": "Entenda como a Skave coleta, utiliza, compartilha e protege os dados pessoais enviados pelo site."
+    },
+    "eyebrow": "TRANSPARÊNCIA E PRIVACIDADE",
+    "title": "Aviso de Privacidade",
+    "intro": "Este aviso explica como a Skave trata os dados pessoais de quem acessa o site, entra em contato ou solicita informações sobre nossos serviços.",
+    "updatedLabel": "Última atualização",
+    "updatedAt": "8 de setembro de 2026",
+    "sections": [
+      {
+        "title": "1. Quem trata seus dados",
+        "paragraphs": ["A Skave é responsável pelas decisões sobre o tratamento dos dados pessoais descritos neste aviso. Dúvidas e solicitações relacionadas à privacidade podem ser enviadas para contato@skave.co."]
+      },
+      {
+        "title": "2. Dados que coletamos",
+        "paragraphs": [
+          "Quando você utiliza nosso formulário de contato, podemos coletar nome, e-mail, telefone, informações sobre sua empresa, faixa de investimento, origem do contato e os dados incluídos livremente na mensagem.",
+          "Também podemos receber dados técnicos necessários ao funcionamento e à segurança do site, como endereço IP, data e hora da requisição, tipo de navegador e registros de erro."
+        ]
+      },
+      {
+        "title": "3. Como utilizamos os dados",
+        "paragraphs": [
+          "Utilizamos os dados para analisar sua solicitação, responder ao contato, compreender as necessidades do projeto, elaborar propostas e conduzir procedimentos preliminares relacionados a uma possível contratação.",
+          "Também podemos tratar informações estritamente necessárias para proteger o site, prevenir abusos, cumprir obrigações legais e exercer direitos em processos administrativos ou judiciais."
+        ]
+      },
+      {
+        "title": "4. Bases legais",
+        "paragraphs": [
+          "Conforme a finalidade, o tratamento pode se apoiar na realização de procedimentos preliminares relacionados a contrato solicitados por você, no cumprimento de obrigação legal ou regulatória, no exercício regular de direitos ou em interesses legítimos da Skave, sempre após avaliação dos direitos e expectativas do titular.",
+          "Caso uma finalidade específica dependa de consentimento, ele será solicitado de forma destacada e poderá ser revogado pelos canais informados neste aviso."
+        ]
+      },
+      {
+        "title": "5. Compartilhamento e operadores",
+        "paragraphs": [
+          "Os dados podem ser processados por fornecedores necessários à operação do site e ao atendimento da solicitação, como serviços de hospedagem, automação de fluxos — incluindo o Make —, e-mail e ferramentas internas de gestão.",
+          "Esses fornecedores atuam segundo nossas instruções e devem utilizar os dados apenas para as finalidades contratadas. Também poderemos compartilhar informações quando houver obrigação legal, determinação de autoridade competente ou necessidade de proteger direitos da Skave ou de terceiros."
+        ]
+      },
+      {
+        "title": "6. Transferências internacionais",
+        "paragraphs": ["Alguns fornecedores de tecnologia podem armazenar ou processar dados fora do Brasil. Nesses casos, buscamos adotar fornecedores e mecanismos compatíveis com a LGPD e medidas adequadas de proteção."]
+      },
+      {
+        "title": "7. Retenção e eliminação",
+        "paragraphs": ["Mantemos os dados somente pelo período necessário para atender à solicitação, desenvolver a relação comercial, cumprir obrigações legais e resguardar o exercício de direitos. Depois disso, os dados são eliminados ou anonimizados, salvo quando a conservação for permitida ou exigida por lei."]
+      },
+      {
+        "title": "8. Segurança",
+        "paragraphs": ["Adotamos medidas técnicas e administrativas proporcionais aos riscos para proteger os dados contra acessos não autorizados, perda, alteração, divulgação ou destruição indevida. Nenhum ambiente digital é totalmente isento de riscos, mas revisamos nossas práticas e fornecedores para reduzir essas possibilidades."]
+      },
+      {
+        "title": "9. Seus direitos",
+        "paragraphs": [
+          "Nos termos da LGPD, você pode solicitar confirmação do tratamento, acesso, correção, anonimização, bloqueio ou eliminação de dados inadequados ou excessivos, portabilidade quando aplicável, informações sobre compartilhamento e revisão de decisões automatizadas.",
+          "Também pode solicitar oposição ao tratamento ou revogar um consentimento anteriormente fornecido, quando essas hipóteses forem aplicáveis. Para exercer seus direitos, escreva para contato@skave.co. Poderemos solicitar informações para confirmar sua identidade e proteger seus dados."
+        ]
+      },
+      {
+        "title": "10. Cookies e tecnologias semelhantes",
+        "paragraphs": ["O site pode utilizar recursos técnicos estritamente necessários ao funcionamento, à segurança e à manutenção das preferências do usuário. Caso sejam adicionadas ferramentas opcionais de análise, publicidade ou rastreamento, este aviso será atualizado e, quando necessário, será oferecido um mecanismo de escolha antes da ativação."]
+      },
+      {
+        "title": "11. Atualizações deste aviso",
+        "paragraphs": ["Este aviso poderá ser atualizado para refletir mudanças no site, nos fornecedores ou nas práticas de tratamento. A versão vigente e sua data de atualização permanecerão disponíveis nesta página."]
       }
     ]
   }

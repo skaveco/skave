@@ -4,8 +4,8 @@ import { pt } from "./pt";
 
 export const aurea = {
   slug: "aurea",
-  categories: ["brand-development", "online-experience"],
-  publishedAt: "00/00/0000",
+  categories: ["online-experience"],
+  publishedAt: "2026-09-20",
   status: "active",
   emphasisProject: true,
   content: { pt, en },

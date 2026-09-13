@@ -2,10 +2,8 @@ import type { Locale } from "@/lib/i18n";
 import { localePath } from "@/lib/i18n";
 
 import { aurea } from "@/data/projects/aurea";
-import { corretorClube } from "@/data/projects/corretor-clube";
-import { fca } from "@/data/projects/fca";
-import { normedic } from "@/data/projects/normedic";
-import { smartPedidos } from "@/data/projects/smart-pedidos";
+import { clickCannabis } from "@/data/projects/clickcannabis";
+import { orbita } from "@/data/projects/orbita";
 
 export type ProjectCategory =
   | "brand-development"
@@ -21,9 +19,13 @@ export type ProjectMedia = {
   src: string;
   alt: string;
   poster?: string;
+  width?: number;
+  height?: number;
 };
 
-export type ProjectCover = Pick<ProjectMedia, "src" | "alt">;
+export type ProjectCover = Pick<ProjectMedia, "src" | "alt"> & {
+  videoSrc?: string;
+};
 
 export type ProjectLocaleContent = {
   name: string;
@@ -59,14 +61,12 @@ export type ProjectCard = Pick<
   | "services"
   | "segment"
   | "publishedAt"
-> & { href: string; image?: string; imageAlt: string };
+> & { href: string; image?: string; imageAlt: string; videoSrc?: string };
 
 const projects: ProjectSource[] = [
-  normedic,
+  clickCannabis,
   aurea,
-  smartPedidos,
-  corretorClube,
-  fca,
+  orbita,
 ];
 
 function localizeProject(project: ProjectSource, locale: Locale): Project {
@@ -99,6 +99,7 @@ function toProjectCard(project: Project, locale: Locale): ProjectCard {
     href: localePath(`/projetos/${project.slug}`, locale),
     image: project.cover.src,
     imageAlt: project.cover.alt,
+    videoSrc: project.cover.videoSrc,
   };
 }
 

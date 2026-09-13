@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ViewportVideo } from "@/components/ui/viewport-video";
 
 import type { ProjectMedia } from "@/data/projects";
 
@@ -24,28 +25,32 @@ export function ProjectMediaSection({
           <figure
             key={`${item.src}-${index}`}
             className="relative aspect-[1020/619] w-full overflow-hidden bg-background-02"
+            style={
+              item.width && item.height
+                ? { aspectRatio: `${item.width} / ${item.height}` }
+                : undefined
+            }
           >
             {item.type === "image" ? (
               <Image
                 src={item.src}
                 alt={item.alt}
                 fill
-                sizes="(min-width: 1100px) 86rem, 100vw"
+                sizes="(min-width: 1456px) 1376px, (min-width: 768px) calc(100vw - 80px), calc(100vw - 40px)"
                 className="object-cover"
               />
             ) : (
-              <video
+              <ViewportVideo
                 aria-label={item.alt}
-                autoPlay
                 loop
                 muted
                 playsInline
                 poster={item.poster}
-                preload="metadata"
+                preload="none"
                 className="size-full object-cover"
               >
                 <source src={item.src} />
-              </video>
+              </ViewportVideo>
             )}
           </figure>
         ))}

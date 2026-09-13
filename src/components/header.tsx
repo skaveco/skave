@@ -153,7 +153,7 @@ export function Header({ lang, copy }: HeaderProps) {
                   transition={reduceMotion ? { duration: 0 } : { duration: 0.32, delay: 0.26 }}
                 >
                   <Link
-                    href={localePath("#contato", lang)}
+                    href={localePath("/contato", lang)}
                     onClick={() => setMenuOpen(false)}
                     className="type-body-base flex min-h-[2.75rem] items-center gap-3 text-text-01 focus-visible:outline-2 focus-visible:outline-offset-[-0.125rem]"
                   >
@@ -194,7 +194,7 @@ export function Header({ lang, copy }: HeaderProps) {
           </nav>
 
           <div className="flex w-32 items-center justify-end gap-7">
-            <HeaderLink href={localePath("#contato", lang)}>
+            <HeaderLink href={localePath("/contato", lang)}>
               {copy.contact}
             </HeaderLink>
             <span

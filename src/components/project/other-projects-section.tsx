@@ -51,6 +51,7 @@ export function OtherProjectsSection({
               publishedAt={project.publishedAt}
               image={project.image}
               imageAlt={project.imageAlt}
+              videoSrc={project.videoSrc}
               href={project.href}
             />
           ))}

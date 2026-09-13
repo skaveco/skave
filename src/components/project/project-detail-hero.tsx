@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import { MediaReveal } from "@/components/ui/media-reveal";
 import { TextAnimate } from "@/components/ui/text-animate";
+import { ViewportVideo } from "@/components/ui/viewport-video";
 import type { ProjectCover } from "@/data/projects";
 
 type ProjectDetailHeroProps = {
@@ -26,14 +27,27 @@ export function ProjectDetailHero({ name, cover }: ProjectDetailHeroProps) {
           className="aspect-[1020/619] w-full overflow-hidden bg-background-01"
         >
           <figure className="relative size-full">
+            {cover.videoSrc ? (
+              <ViewportVideo
+                src={cover.videoSrc}
+                poster={cover.src}
+                aria-label={cover.alt}
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                className="size-full object-cover"
+              />
+            ) : (
             <Image
               src={cover.src}
               alt={cover.alt}
               fill
-              priority
+              preload
               sizes="(min-width: 1100px) 86rem, 100vw"
               className="object-cover"
             />
+            )}
           </figure>
         </MediaReveal>
       </div>

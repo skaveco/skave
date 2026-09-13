@@ -145,7 +145,7 @@ export function Footer({ content, lang }: FooterProps) {
               </TextAnimate>
             </p>
             <Button
-              href={`mailto:${content.email}`}
+              href={localePath("/contato", lang)}
               icon="arrow-long-right"
               fontSize="0.875rem"
               gap="0.5rem"
@@ -220,9 +220,18 @@ export function Footer({ content, lang }: FooterProps) {
         </div>
 
         <div className="flex flex-col gap-3.5 border-t border-divider pt-3.5 sm:flex-row sm:items-center sm:justify-between">
-          <p className="type-body-sm text-text-02">
-            {content.copyright.replace("{year}", String(currentYear))}
-          </p>
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-5">
+            <p className="type-body-sm text-text-02">
+              {content.copyright.replace("{year}", String(currentYear))}
+            </p>
+            <HeaderLink
+              href={localePath("/privacidade", lang)}
+              difference={false}
+              className="type-body-sm !text-text-02"
+            >
+              {content.privacy}
+            </HeaderLink>
+          </div>
           <button
             type="button"
             className="type-body-sm group inline-flex w-fit items-center gap-3 focus-visible:outline-2 focus-visible:outline-offset-4"

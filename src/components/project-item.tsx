@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { MediaReveal } from "@/components/ui/media-reveal";
 import { TextAnimate } from "@/components/ui/text-animate";
+import { ViewportVideo } from "@/components/ui/viewport-video";
 
 type ProjectItemProps = {
   number: string;
@@ -12,6 +13,7 @@ type ProjectItemProps = {
   publishedAt: string;
   image?: ImageProps["src"];
   imageAlt: string;
+  videoSrc?: string;
   href?: string;
   className?: string;
 };
@@ -21,10 +23,9 @@ export function ProjectItem({
   number,
   name,
   services,
-  segment,
-  publishedAt,
   image = "/hero/video-poster.jpg",
   imageAlt,
+  videoSrc,
   href,
   className = "",
 }: ProjectItemProps) {
@@ -42,7 +43,7 @@ export function ProjectItem({
         {services.map((service) => (
           <li
             key={service}
-            className="w-[6.4375rem] first:w-[4.625rem]"
+            className="w-fit"
           >
             {service}
           </li>
@@ -55,6 +56,19 @@ export function ProjectItem({
         className="relative z-10 aspect-video w-full cursor-none overflow-hidden bg-background-01 opacity-100 shadow-sm [clip-path:inset(0)] transition-[clip-path,visibility] duration-1000 ease-in-out motion-reduce:transition-none desktop:invisible desktop:absolute desktop:top-[calc(50%+0.0625rem)] desktop:left-[calc(50%+2.8125rem)] desktop:h-[14.875rem] desktop:w-[25.125rem] desktop:-translate-x-1/2 desktop:-translate-y-1/2 desktop:aspect-auto desktop:bg-text-02 desktop:[clip-path:inset(0_0_100%_0)] desktop:group-hover:visible desktop:group-hover:[clip-path:inset(0)] desktop:group-focus-visible:visible desktop:group-focus-visible:[clip-path:inset(0)]"
       >
         <figure data-cursor="case" className="relative size-full">
+          {videoSrc ? (
+            <ViewportVideo
+              hoverTargetSelector="[data-project-preview]"
+              src={videoSrc}
+              poster={typeof image === "string" ? image : undefined}
+              aria-label={imageAlt}
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              className="size-full object-cover"
+            />
+          ) : (
           <Image
             src={image}
             alt={imageAlt}
@@ -62,11 +76,8 @@ export function ProjectItem({
             sizes="(min-width: 68.75rem) 25.125rem, 100vw"
             className="object-cover"
           />
+          )}
 
-          <figcaption className="type-label-md absolute inset-x-0 bottom-0 z-10 flex items-center gap-[1.25rem] p-[1.25rem] text-fixed-white uppercase">
-            <span>{segment}</span>
-            <time>{publishedAt}</time>
-          </figcaption>
         </figure>
       </MediaReveal>
     </>
@@ -75,7 +86,7 @@ export function ProjectItem({
   if (href) {
     return (
       <article>
-        <Link href={href} className={rootClassName}>
+        <Link href={href} className={rootClassName} data-project-preview>
           {content}
         </Link>
       </article>
@@ -83,7 +94,7 @@ export function ProjectItem({
   }
 
   return (
-    <article tabIndex={0} className={rootClassName}>
+    <article tabIndex={0} className={rootClassName} data-project-preview>
       {content}
     </article>
   );

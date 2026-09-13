@@ -39,11 +39,21 @@
     "email": "contato@skave.co",
     "socialMedia": "SOCIAL MEDIA",
     "socialLinks": [
-      { "label": "Instagram", "url": "https://www.instagram.com/skave_co/" },
-      { "label": "LinkedIn", "url": "https://www.linkedin.com/company/skave" },
-      { "label": "Behance", "url": "https://www.behance.net/skave" }
+      {
+        "label": "Instagram",
+        "url": "https://www.instagram.com/skave_co/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/company/skave"
+      },
+      {
+        "label": "Behance",
+        "url": "https://www.behance.net/skave"
+      }
     ],
     "copyright": "Skave©{year}. All rights reserved.",
+    "privacy": "Privacy Notice",
     "goTop": "Back to the surface"
   },
   "projects": {
@@ -280,6 +290,196 @@
           "UI/UX Design",
           "Prototypes",
           "Design System"
+        ]
+      }
+    ]
+  },
+  "contact": {
+    "metadata": {
+      "title": "Contact | Skave",
+      "description": "Tell Skave about your business and your project. Let’s talk about strategy, experience, and performance."
+    },
+    "title": "Contact",
+    "eyebrow": "GREAT FIRST STEP!",
+    "description": "For over 7 years, we have been designing solutions with a method focused on Strategy, Experience, and Performance.",
+    "form": {
+      "personalTitle": "Your details",
+      "companyTitle": "About your company",
+      "projectTitle": "About your project",
+      "name": {
+        "label": "Name",
+        "placeholder": "Enter your name"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Enter your preferred email"
+      },
+      "phone": {
+        "label": "Phone",
+        "placeholder": "Enter your phone number"
+      },
+      "referralSource": {
+        "label": "How and where did you find Skave?",
+        "placeholder": "How and where did you find Skave?",
+        "options": [
+          {
+            "value": "social-media",
+            "label": "Social Media"
+          },
+          {
+            "value": "referral",
+            "label": "Referral"
+          },
+          {
+            "value": "google",
+            "label": "Google"
+          },
+          {
+            "value": "online-ad",
+            "label": "Online Ad"
+          }
+        ]
+      },
+      "companyNameAndIndustry": {
+        "label": "Company name and industry",
+        "placeholder": "Company name and industry"
+      },
+      "company": {
+        "label": "Company website or Instagram",
+        "placeholder": "Company website or Instagram (https://...)",
+        "urlHint": "Enter a complete URL starting with https:// or http://."
+      },
+      "partners": {
+        "label": "Company partners",
+        "placeholder": "Names of the company partners"
+      },
+      "budget": {
+        "label": "Expected investment",
+        "placeholder": "Expected investment",
+        "options": [
+          {
+            "value": "up-to-7000",
+            "label": "Up to R$ 7,000"
+          },
+          {
+            "value": "7000-15000",
+            "label": "R$ 7,000–15,000"
+          },
+          {
+            "value": "15000-30000",
+            "label": "R$ 15,000–30,000"
+          },
+          {
+            "value": "30000-60000",
+            "label": "R$ 30,000–60,000"
+          },
+          {
+            "value": "over-60000",
+            "label": "Over R$ 60,000"
+          }
+        ]
+      },
+      "message": {
+        "label": "Project challenges",
+        "placeholder": "How can we help you? Tell us more about your challenges."
+      },
+      "submit": "Send form",
+      "sending": "Sending…",
+      "success": "Your form was submitted successfully! We will be in touch soon.",
+      "error": "We could not confirm your submission. Please try again shortly.",
+      "privacy": "By submitting this form, you acknowledge that we will use your data to review your request and contact you, as described in our",
+      "privacyLink": "Privacy Notice"
+    }
+  },
+  "thankYou": {
+    "metadata": {
+      "title": "Thank you | Skave"
+    },
+    "title": "Success!",
+    "subtitle": "Let’s dig deeper.",
+    "description": "Thank you for reaching out. Your information is secure and will be reviewed by our sales team. We’ll be in touch very soon.",
+    "backToSite": "Back to the website"
+  },
+  "privacyPage": {
+    "metadata": {
+      "title": "Privacy Notice | Skave",
+      "description": "Learn how Skave collects, uses, shares, and protects personal data submitted through this website."
+    },
+    "eyebrow": "TRANSPARENCY AND PRIVACY",
+    "title": "Privacy Notice",
+    "intro": "This notice explains how Skave processes personal data from people who visit our website, contact us, or request information about our services.",
+    "updatedLabel": "Last updated",
+    "updatedAt": "September 8, 2026",
+    "sections": [
+      {
+        "title": "1. Who processes your data",
+        "paragraphs": [
+          "Skave is responsible for decisions regarding the processing of personal data described in this notice. Privacy questions and requests can be sent to contato@skave.co."
+        ]
+      },
+      {
+        "title": "2. Data we collect",
+        "paragraphs": [
+          "When you use our contact form, we may collect your name, email address, phone number, company information, expected investment range, referral source, and any information you freely include in your message.",
+          "We may also receive technical data required for the operation and security of the website, such as IP address, request date and time, browser type, and error logs."
+        ]
+      },
+      {
+        "title": "3. How we use data",
+        "paragraphs": [
+          "We use the data to review your request, respond to you, understand project needs, prepare proposals, and take preliminary steps related to a potential agreement.",
+          "We may also process information strictly necessary to protect the website, prevent abuse, comply with legal obligations, and exercise rights in administrative or judicial proceedings."
+        ]
+      },
+      {
+        "title": "4. Legal bases",
+        "paragraphs": [
+          "Depending on the purpose, processing may be based on taking preliminary steps related to an agreement at your request, compliance with a legal or regulatory obligation, the regular exercise of rights, or Skave's legitimate interests, always after assessing the data subject's rights and expectations.",
+          "If a specific purpose depends on consent, it will be requested separately and may be withdrawn through the channels listed in this notice."
+        ]
+      },
+      {
+        "title": "5. Sharing and service providers",
+        "paragraphs": [
+          "Data may be processed by providers required to operate the website and respond to your request, such as hosting, workflow automation — including Make —, email, and internal management services.",
+          "These providers act under our instructions and must use the data only for the contracted purposes. We may also share information when required by law, ordered by a competent authority, or necessary to protect the rights of Skave or third parties."
+        ]
+      },
+      {
+        "title": "6. International transfers",
+        "paragraphs": [
+          "Some technology providers may store or process data outside Brazil. In such cases, we seek to use providers and mechanisms compatible with the LGPD and appropriate protection measures."
+        ]
+      },
+      {
+        "title": "7. Retention and deletion",
+        "paragraphs": [
+          "We retain data only for as long as necessary to respond to the request, develop the business relationship, comply with legal obligations, and safeguard the exercise of rights. Data is then deleted or anonymized unless retention is permitted or required by law."
+        ]
+      },
+      {
+        "title": "8. Security",
+        "paragraphs": [
+          "We adopt technical and administrative measures proportionate to the risks to protect data against unauthorized access, loss, alteration, disclosure, or improper destruction. No digital environment is entirely risk-free, but we review our practices and providers to reduce these possibilities."
+        ]
+      },
+      {
+        "title": "9. Your rights",
+        "paragraphs": [
+          "Under the LGPD, you may request confirmation of processing, access, correction, anonymization, blocking or deletion of inadequate or excessive data, portability where applicable, information about sharing, and review of automated decisions.",
+          "You may also object to processing or withdraw previously given consent when applicable. To exercise your rights, email contato@skave.co. We may request information to verify your identity and protect your data."
+        ]
+      },
+      {
+        "title": "10. Cookies and similar technologies",
+        "paragraphs": [
+          "The website may use technical resources strictly necessary for operation, security, and saving user preferences. If optional analytics, advertising, or tracking tools are added, this notice will be updated and, where required, a choice mechanism will be offered before activation."
+        ]
+      },
+      {
+        "title": "11. Changes to this notice",
+        "paragraphs": [
+          "This notice may be updated to reflect changes to the website, providers, or processing practices. The current version and its revision date will remain available on this page."
         ]
       }
     ]
