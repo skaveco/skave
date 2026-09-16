@@ -92,7 +92,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         <AboutSection content={dict.about} />
         <ResultsSection content={dict.results} />
         <CapabilitiesSection content={dict.capabilities} />
-        <DarkThemeRange>
+        <DarkThemeRange persistAfter>
           <NumbersSection content={dict.numbers} />
           <TestimonialsSection content={dict.testimonials} />
           <CustomersSection content={dict.customers} />
