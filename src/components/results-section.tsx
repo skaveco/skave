@@ -14,7 +14,7 @@ const resultAssets = [
     logo: "leads2b",
   },
   {
-    image: "/results/Representante da Dr.Sim recebendo prêmio.jpg",
+    image: "/results/dr-sim-premio.jpg",
     logo: "dr-sim",
   },
   {

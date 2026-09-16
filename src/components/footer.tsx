@@ -27,10 +27,10 @@ type FooterProps = {
 };
 
 const navigation = [
+  ["home", "#inicio"],
+  ["solutions", "#servicos"],
   ["projects", "/projetos"],
-  ["solutions", "#especialidades"],
   ["about", "#sobre"],
-  ["news", "#novidades"],
 ] as const;
 
 function FooterWordmark() {

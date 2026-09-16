@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { AboutSection } from "@/components/about-section";
-import { BlogSection } from "@/components/blog-section";
 import { CapabilitiesSection } from "@/components/capabilities-section";
 import { CustomersSection } from "@/components/customers-section";
 import { Footer } from "@/components/footer";
@@ -14,7 +13,6 @@ import { ProjectsSection } from "@/components/projects-section";
 import { ResultsSection } from "@/components/results-section";
 import { TestimonialsSection } from "@/components/testimonials-section";
 import { DarkThemeRange } from "@/components/ui/dark-theme-range";
-import { blogPostCards } from "@/data/blog";
 import { emphasisProjectCards } from "@/data/projects";
 import { hasLocale } from "@/lib/i18n";
 import { homeJsonLd } from "@/lib/seo";
@@ -100,11 +98,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
           <CustomersSection content={dict.customers} />
           <PartnersSection content={dict.partners} />
         </DarkThemeRange>
-        <BlogSection
-          content={dict.blog}
-          lang={lang}
-          posts={blogPostCards(lang)}
-        />
+        {/* Blog temporarily hidden until articles are available. */}
       </main>
       <Footer content={dict.footer} lang={lang} />
     </>

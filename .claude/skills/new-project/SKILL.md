@@ -1,115 +1,71 @@
 ---
 name: new-project
-description: Publica um case novo na página de projetos deste site — encontra as mídias pelo prefixo do slug, define o papel de cada uma (capa do card, hero, galeria), otimiza, coleta os textos que faltam e escreve a entrada em src/data/projects.ts. Use sempre que o usuário disser "/new-project", "subir um projeto novo", "adicionar um case", "publicar o projeto X", ou quando ele mandar as mídias de um projeto que ainda não existe em projects.ts. Para mudar o layout da página de case, prefira new-section.
+description: Adiciona cases ao portfólio Skave com mídias e conteúdo em português e inglês. Use para /new-project, adicionar um case ou cadastrar um novo projeto no site. Não se aplica à criação de um novo aplicativo nem a mudanças de layout.
 ---
 
-# Subir um case novo
+# Adicionar um case
 
-Toda a página de case sai de uma única entrada em `src/data/projects.ts`. A rota estática, o card na home, a rotação do "Veja mais projetos", o sitemap, o canonical e as tags de Open Graph derivam dela — não há arquivo de página para criar.
+## Estrutura e referências
 
-Por isso o trabalho aqui é quase todo de **entrada de dados**, e o que dá errado não é código: é mídia no papel errado e texto faltando. O fluxo tem um portão no meio por causa disso: **inventariar → devolver o mapeamento → esperar o OK → escrever → verificar.**
+Confira os tipos em `src/data/projects.ts` e use um case registrado, como `src/data/projects/clickcannabis/`, como referência. Antes de escrever código, leia as instruções do `AGENTS.md` e a documentação local do Next.js pertinente à alteração.
 
-## 1. Descobrir o slug e as mídias
+Cada case usa:
 
-Cada case tem a própria pasta, nomeada com o slug: **`public/projetos/<slug>/`**. Dentro dela, duas convenções de nome:
+- `public/project/<slug>/`: mídias, referenciadas como `/project/<slug>/<arquivo>`.
+- `src/data/projects/<slug>/index.ts`: dados compartilhados, com `satisfies ProjectSource`.
+- `src/data/projects/<slug>/pt.ts` e `en.ts`: conteúdo traduzido, com `satisfies ProjectLocaleContent`.
+- `src/data/projects.ts`: import e registro no array `projects`.
 
-- **`cover-<slug>`** — a capa do card. Nome próprio porque o papel é único e a proporção é outra.
-- **`<slug>-1`, `<slug>-2`, …** — as imagens do case, em ordem.
+As rotas `/pt/projetos/<slug>` e `/en/projetos/<slug>`, os cards e os metadados derivam desse registro. Não é necessário criar páginas ou editar componentes.
 
-Exemplo: `public/projetos/aurea/cover-aurea.webp` e `public/projetos/aurea/aurea-1.webp`.
+## 1. Reunir os dados
 
-A pasta delimita o case, então liste o conteúdo dela e ordene as numeradas pelo número — sem risco de um prefixo pegar arquivo de outro projeto.
+Confira se o slug já existe na pasta de dados ou no registro antes de criar outro. Use minúsculas, sem acentos e com hífens; preserve URLs existentes. Se o pedido conflitar com um case existente, esclareça se é uma atualização.
 
-**Tudo em minúsculo, sem exceção.** O Windows não distingue caixa, mas o servidor de produção é Linux e distingue: um caminho com a caixa errada funciona na máquina do usuário e dá 404 depois do deploy. Se precisar renomear uma pasta só na caixa, o Git no Windows exige dois passos — `git mv pasta tmp` e depois `git mv tmp pasta`. Confira também se o slug já está em `projects.ts` — se estiver, isso é uma atualização de case, não um case novo, e vale confirmar com o usuário antes de sobrescrever.
+Reaproveite as informações fornecidas e peça, em uma única mensagem, apenas o que falta para definir o case. Não invente créditos, datas, serviços prestados ou resultados.
 
-Regras do slug: minúsculo, sem acento, palavras separadas por hífen. Ele vira a URL `/projetos/<slug>` e não deve mudar depois de publicado, porque links já compartilhados quebram.
+| Arquivo | Campos |
+|---|---|
+| `index.ts` | `slug`, `categories`, `publishedAt` (`YYYY-MM-DD`), `status`, `emphasisProject`, `content: { pt, en }` |
+| `pt.ts` / `en.ts` | `name`, `segment`, `services[]`, `location`, `capabilities[]`, `credits[]`, `title`, `description`, `challenge`, `solution`, `cover`, `media[]` |
 
-## 2. Atribuir o papel de cada mídia
+- `categories`: valores de `ProjectCategory` — atualmente `brand-development`, `online-experience` e `digital-product`.
+- `status: "active"`: disponibiliza o case nas rotas e na listagem; `inactive` o exclui dessas consultas.
+- `emphasisProject: true`: inclui o case ativo na home.
+- A ordem do array determina a ordem de exibição. Preserve a ordem existente e acrescente ao final se o usuário não indicar outra posição; informe a posição escolhida.
+- `name`: nome exibido no card e no início do case. `title`: frase de destaque (H1), também usada no título SEO. `description`: apresentação do case e meta description.
+- `services`: serviços contratados; `capabilities`: competências aplicadas no projeto. Conteúdo de cases fica nos arquivos do projeto; dicionários gerais guardam textos da interface.
+- `credits`: array de `{ role, names: string[] }`. Os quatro acordeões são desafio, solução, capacidades e créditos.
+- `solution` aceita parágrafos separados por `\n\n`. Não presuma esse tratamento nos demais campos nem que campos vazios se ocultem.
 
-Três papéis, com proporções que **não são intercambiáveis**:
+Prepare os dois idiomas a partir do conteúdo fornecido, traduzindo textos e `alt` sem alterar fatos, nomes próprios ou caminhos de mídia. Se o usuário fornecer traduções, preserve-as. Não cadastre um case ativo com placeholders para preencher depois; resolva as lacunas ou combine um cadastro inativo.
 
-| Campo | Arquivo | Papel | Proporção | Observação |
-|---|---|---|---|---|
-| `cover` | `cover-<slug>` | capa do card na home e no "Veja mais projetos" | 467/385, retrato leve | |
-| `image1` | `<slug>-1` | primeira imagem do case: o hero em tela cheia | 16:9 | **a base precisa ser escura** — o título é branco fixo e não há gradiente atrás dele |
-| `media[]` | `<slug>-2` em diante | galeria, na ordem numérica | 16:9 | quantidade livre; aceita imagem e vídeo |
+## 2. Mapear e preparar as mídias
 
-Os caminhos em `projects.ts` são absolutos a partir de `public/`, então incluem a pasta: `/projetos/aurea/aurea-1.webp`.
+Liste os arquivos da pasta do case, confira conteúdo, formato, peso e dimensões. Use `cover.*` como candidato a capa e a sequência numérica (`01`, `02`, …) como ordem inicial da galeria. Os nomes são uma convenção, não um requisito do código: não renomeie fontes existentes sem necessidade nem inclua originais e versões otimizadas em duplicidade.
 
-A nomenclatura resolve o mapeamento sozinha — não pergunte qual arquivo é qual. Pergunte só quando algo não se encaixar: `cover-<slug>` ausente, buraco na numeração, ou uma proporção medida longe da esperada.
+| Campo | Uso e cuidados |
+|---|---|
+| `cover: { src, alt, videoSrc? }` | A mesma capa atende ao card, ao hero e à imagem de compartilhamento. Com `videoSrc`, `src` continua sendo a imagem/poster. |
+| `media[]` | Galeria de imagens e vídeos: `{ type, src, alt, poster?, width?, height? }`. Use as dimensões reais do arquivo final para preservar sua proporção; forneça poster para vídeos. |
 
-Meça as proporções reais dos arquivos em vez de confiar no nome. Uma imagem fora da proporção esperada não quebra o layout — `object-cover` corta — mas o corte aparece, e é melhor avisar antes.
+O hero usa proporção `1020/619`; o card usa 16:9 no mobile e 402/238 no desktop. Ambos recortam com `object-cover`. A galeria respeita `width`/`height`, com fallback `1020/619`. Confira o enquadramento da capa nos dois usos. O nome fica acima da mídia: não é necessário exigir fundo escuro.
 
-Para vídeo, o tipo é `{ type: "video", src, alt, poster }`. O `poster` evita um retângulo cinza enquanto o arquivo carrega.
+Otimize somente os arquivos que precisarem, antes de registrar os caminhos finais. Para conversões, consulte [optimize-media](../optimize-media/SKILL.md), restrinja o trabalho às mídias deste case e preserve os originais. Respeite decisões já autorizadas pelo usuário, sem pedir a mesma aprovação novamente.
 
-## 3. Levantar os textos
+Se houver ambiguidade na capa, na sequência ou no conteúdo, apresente o mapeamento e pergunte apenas sobre ela. Com os dados definidos e o cadastro solicitado, prossiga sem um OK adicional obrigatório.
 
-Os campos de texto não têm de onde ser inferidos. Liste ao usuário o que falta e peça de uma vez só, em vez de uma pergunta por campo:
+## 3. Cadastrar e verificar
 
-- `projectName` — nome com a categoria: "Normedic (SaaS)". Aparece no card.
-- `title` — nome curto: "Normedic". Aparece no hero.
-- `tags` — as duas tags do card.
-- `headline` — a frase de destaque. Vira também a `<meta description>`, então é o que aparece no Google.
-- `company` — parágrafo sobre a empresa.
-- `challenge`, `solution`, `credits` — o conteúdo dos três acordeões.
-- `meta` — `segment`, `date`, `services[]`, `location`.
+Crie os três arquivos de dados e registre o case em `src/data/projects.ts`. Limite as alterações ao conteúdo e às mídias do case; mudanças de layout são uma tarefa separada.
 
-Textos longos quebram em parágrafos com `\n\n`; o `whitespace-pre-line` já está no lugar.
+Verifique:
 
-Campo vazio não quebra a página — os blocos se auto-ocultam. Mas um case sem `headline` sai com meta description vazia e vira página fina para busca, o que é pior do que não publicar. Se o usuário quiser subir incompleto, tudo bem; avise o custo e siga.
+- Slug único e registro com os dois idiomas completos.
+- Existência e caixa exata dos caminhos de imagem, vídeo e poster; dimensões correspondentes aos arquivos finais.
+- `npm run lint` e `npm run build`; para cases ativos, confirme as duas rotas localizadas na saída do build. Relate bloqueios ou falhas preexistentes sem corrigi-los fora do escopo.
+- Capa no hero e nos cards, ordem da galeria, vídeos e quatro acordeões nos dois idiomas. Use o preview disponível; se não houver verificação visual, deixe isso explícito na entrega.
 
-## 4. Devolver o mapeamento e parar
+“Veja mais projetos” exibe os três primeiros cases ativos, excluindo o atual; não há rotação que garanta a presença de todo case novo. O sitemap inclui cases ativos apenas quando a indexação está habilitada. O domínio vem de `src/lib/seo.ts`; não depende de `NEXT_PUBLIC_SITE_URL`.
 
-Antes de escrever, apresente e **aguarde o OK**:
-
-```
-## Slug
-O slug e a URL que ele gera.
-
-## Mídias
-| Arquivo | Papel | Proporção medida | Observação |
-|---|---|---|---|
-
-## Textos
-O que o usuário passou, e o que ainda falta.
-
-## Otimização
-O que está pesado e o que vai ser convertido.
-
-## Decisões e perguntas
-```
-
-O que mais costuma precisar de confirmação: se a base do `image1` é escura o bastante para o título branco, e se a posição do case na home é a certa.
-
-## 5. Otimizar as mídias
-
-Rode a skill `optimize-media` antes de escrever a entrada, para os caminhos já saírem apontando para os arquivos finais. Converter depois obriga a voltar em `projects.ts` para corrigir extensão.
-
-Imagem de capa em PNG acima de 1 MB é o caso mais comum e o que mais pesa: são os arquivos-fonte do LCP da página.
-
-## 6. Escrever a entrada
-
-Um objeto novo no array `projects` de `src/data/projects.ts`. **A ordem do array é a ordem dos cards na home** — pergunte onde o case entra em vez de sempre acrescentar no fim.
-
-Nenhum outro arquivo é tocado. Se a implementação pedir mudança em componente ou rota, isso não é um case novo: é mudança de estrutura, e vale parar e alinhar.
-
-## 7. Verificar
-
-Rode o build e confirme que a rota nova aparece na lista de prerenderizadas:
-
-```bash
-npm run build
-```
-
-Depois entregue ao usuário apontando o que conferir de específico:
-
-- **o hero** — é onde o erro aparece primeiro, se a base da imagem não for escura o bastante para o título branco
-- **o card na home**, na posição combinada
-- **o "Veja mais projetos"** nos outros cases, que agora inclui este na rotação
-- **os acordeões**, se os textos entraram com as quebras de parágrafo certas
-
-Não suba servidor de desenvolvimento: o usuário confere mais rápido no navegador dele.
-
-## Uma vez só, não a cada case
-
-`NEXT_PUBLIC_SITE_URL` precisa estar definida no ambiente de produção com o domínio real. Sem ela, `og:image`, canonical e sitemap resolvem contra `localhost`. Se o usuário nunca configurou, avise na primeira vez — depois disso, não repita.
+Entregue as URLs locais, os arquivos alterados, o status/destaque/posição escolhidos e o resultado das verificações. Cadastrar no repositório não equivale a fazer deploy; publique somente se isso fizer parte do pedido.

@@ -19,10 +19,10 @@ type HeaderProps = {
 };
 
 const navigation = [
-  ["services", "#especialidades"],
+  ["home", "#inicio"],
+  ["services", "#servicos"],
   ["cases", "/projetos"],
   ["about", "#sobre"],
-  ["news", "#novidades"],
 ] as const;
 
 // Figma: Website Skave 3.0, node 2823:41.

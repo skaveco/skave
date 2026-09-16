@@ -4,10 +4,11 @@
     "description": "Parceiro estratégico, técnico e criativo para negócios digitais. Desenvolvemos marcas, sites e produtos digitais, do planejamento à entrega."
   },
   "header": {
+    "home": "Início",
     "homeLabel": "Ir para o início",
     "navigationLabel": "Navegação principal",
-    "services": "Serviços",
-    "cases": "Projetos",
+    "services": "Especialidades",
+    "cases": "Cases",
     "about": "Sobre",
     "news": "Novidades",
     "contact": "Contato",
@@ -29,8 +30,9 @@
     "contact": "Contato",
     "explore": "EXPLORE",
     "navigation": {
-      "projects": "Projetos",
-      "solutions": "Soluções",
+      "home": "Início",
+      "projects": "Cases",
+      "solutions": "Especialidades",
       "about": "Sobre",
       "news": "Novidades"
     },

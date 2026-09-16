@@ -10,7 +10,7 @@ export const indexingEnabled =
   (!process.env.VERCEL_ENV || process.env.VERCEL_ENV === "production");
 
 // Add routes here only after their content and metadata are ready to publish.
-export const sitemapPaths = ["/", "/projetos"];
+export const sitemapPaths = ["/", "/projetos", "/contato", "/privacidade"];
 
 export function homeJsonLd(dict: Dictionary, lang: Locale) {
   const organizationId = `${siteUrl}/#organization`;

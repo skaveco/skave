@@ -4,9 +4,10 @@
     "description": "A strategic, technical, and creative partner for digital businesses. We build brands, websites, and digital products, from planning to delivery."
   },
   "header": {
+    "home": "Home",
     "homeLabel": "Go to homepage",
     "navigationLabel": "Primary navigation",
-    "services": "Services",
+    "services": "Expertise",
     "cases": "Work",
     "about": "About",
     "news": "News",
@@ -29,8 +30,9 @@
     "contact": "Contact",
     "explore": "EXPLORE",
     "navigation": {
+      "home": "Home",
       "projects": "Work",
-      "solutions": "Solutions",
+      "solutions": "Expertise",
       "about": "About",
       "news": "News"
     },

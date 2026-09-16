@@ -3,7 +3,9 @@ import { localePath } from "@/lib/i18n";
 
 import { aurea } from "@/data/projects/aurea";
 import { clickCannabis } from "@/data/projects/clickcannabis";
+import { leads2b } from "@/data/projects/leads2b";
 import { orbita } from "@/data/projects/orbita";
+import { setfin } from "@/data/projects/setfin";
 
 export type ProjectCategory =
   | "brand-development"
@@ -67,6 +69,8 @@ const projects: ProjectSource[] = [
   clickCannabis,
   aurea,
   orbita,
+  leads2b,
+  setfin,
 ];
 
 function localizeProject(project: ProjectSource, locale: Locale): Project {

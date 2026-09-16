@@ -7,6 +7,7 @@
 - `src/app/sitemap.ts`: gera `/sitemap.xml`, com URLs absolutas e versões de idioma.
 - `src/app/[lang]/page.tsx`: insere JSON-LD no HTML das duas homes.
 - `src/app/[lang]/layout.tsx`: aplica `noindex, follow` enquanto a indexação estiver desativada.
+- `src/app/[lang]/projetos/[slug]/page.tsx`: gera título, descrição, canonical, alternâncias de idioma e metadados sociais com a capa de cada projeto ativo.
 
 O JSON-LD descreve Organization (Skave), WebSite (site) e WebPage (home no idioma atual). Contato, redes sociais e descrições vêm dos dicionários usados no conteúdo visível.
 
@@ -19,7 +20,7 @@ Sem configuração adicional, todas as páginas usam `noindex, follow`. O sitema
 1. Revisar quais páginas estão prontas e seus metadados.
 2. Configurar `SITE_INDEXING_ENABLED=true` **somente no ambiente de produção** da hospedagem.
 3. Gerar um novo build e publicar em `https://skave.co`.
-4. Conferir HTML de `/pt` e `/en`, JSON-LD, canonical e a ausência de `noindex`.
+4. Conferir HTML das páginas públicas nos dois idiomas, JSON-LD, canonical e a ausência de `noindex`. As páginas de agradecimento devem continuar com `noindex, follow`.
 5. Conferir `/robots.txt` e `/sitemap.xml` no domínio publicado.
 6. Validar dados estruturados no Schema Markup Validator e enviar o sitemap ao Google Search Console.
 
@@ -27,8 +28,14 @@ Sem configuração adicional, todas as páginas usam `noindex, follow`. O sitema
 
 ## Novas páginas
 
-Os projetos exibidos atualmente são fictícios. A listagem tem apenas metadados gerais e JSON-LD de CollectionPage, sem nomes, contagens ou URLs dos cases. Antes do lançamento, substituir os placeholders e então avaliar a inclusão de ItemList e dos metadados das páginas individuais. Nenhum case individual está no sitemap.
+O sitemap usa o mesmo registro de projetos das páginas (`src/data/projects.ts`), por meio de `activeProjectSlugs()`. Cada projeto registrado com `status: active` entra automaticamente nos dois idiomas após um novo build. Projetos inativos ou não registrados não entram e suas rotas retornam 404. `emphasisProject` controla apenas o destaque na home.
 
-`sitemapPaths` contém `/` e `/projetos`, gerando as homes e as listagens de projetos em PT/EN quando a indexação estiver ativa. Acrescentar novos caminhos sem idioma apenas depois da revisão. Para projetos individuais, adicionar os caminhos dos projetos aprovados ou integrar uma lista de publicação revisada.
+`sitemapPaths`, em `src/lib/seo.ts`, define as páginas institucionais incluídas. Quando a indexação está ativa, o sitemap gera uma URL por idioma para cada uma dessas páginas e cada case ativo; a quantidade acompanha o registro, sem manutenção manual. Todas incluem alternâncias `pt-BR`, `en` e `x-default`, consistentes com os metadados HTML. `x-default` aponta para a rota sem idioma, que redireciona conforme a preferência do visitante; essas rotas não entram como entradas `<loc>`.
+
+`/pt/obrigado` e `/en/obrigado` ficam fora do sitemap e mantêm `noindex, follow` mesmo no lançamento. O robots.txt permite seu rastreamento para que os buscadores possam ler essa instrução. APIs, arquivos estáticos e URLs inexistentes também não são entradas do sitemap.
 
 Não incluir âncoras, redirecionamentos ou páginas incompletas. Omitir uma página do sitemap não impede sua indexação: após a liberação global, páginas ainda incompletas precisam de noindex próprio ou devem permanecer indisponíveis. Não há datas de atualização artificiais no sitemap.
+
+## Domínio e hospedagem
+
+Antes do lançamento, confira se o domínio canônico definido em `siteUrl` serve esta aplicação e se o domínio alternativo redireciona para ele. Caso haja uma versão anterior do site em outra hospedagem, confira também a troca de destino do domínio e os redirecionamentos das URLs antigas. Se o domínio escolhido mudar, atualize `siteUrl` antes do build. Valide o sitemap público após a publicação e só então envie-o ao Search Console.
