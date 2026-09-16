@@ -105,7 +105,8 @@ export function TextAnimate({
   }
 
   return (
-    <span ref={ref} className="inline-block" aria-label={children}>
+    <span ref={ref} className="inline-block">
+      <span className="sr-only">{children}</span>
       {Array.from(children).map((character, index) => (
         <span
           key={`${character}-${index}`}

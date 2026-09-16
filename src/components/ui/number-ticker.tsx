@@ -55,9 +55,9 @@ export function NumberTicker({
     <span
       ref={elementRef}
       className={className}
-      aria-label={`${prefix}${value}`}
       onPointerEnter={handlePointerEnter}
     >
+      <span className="sr-only">{prefix}{value}</span>
       <span aria-hidden="true">
         {prefix}
         {reduceMotion && isInView ? value : displayValue}

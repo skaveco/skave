@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { notFound } from "next/navigation";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next"
 
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { SiteCursor } from "@/components/ui/cursor";
@@ -73,6 +74,7 @@ export default async function LocaleLayout({
           />
         </SmoothScroll>
         <SpeedInsights />
+        <Analytics/>
       </body>
     </html>
   );

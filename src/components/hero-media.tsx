@@ -265,6 +265,7 @@ export function HeroMedia({ playVideoLabel, closeVideoLabel }: HeroMediaProps) {
           style={desktopMedia ? { x: reduceMotion ? x : smoothX } : undefined}
         >
           <video
+            aria-hidden="true"
             className="pointer-events-none size-full object-cover"
             autoPlay
             loop
